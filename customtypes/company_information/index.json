@@ -1,0 +1,70 @@
+{
+  "format": "custom",
+  "id": "company_information",
+  "label": "Company Information",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "company_name": {
+        "type": "Text",
+        "config": {
+          "label": "Company Name",
+          "placeholder": "Contoso.com"
+        }
+      },
+      "company_logo": {
+        "type": "Image",
+        "config": {
+          "label": "Company Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "address_line_1": {
+        "type": "Text",
+        "config": {
+          "label": "Address Line 1",
+          "placeholder": "123 some street"
+        }
+      },
+      "address_line_2": {
+        "type": "Text",
+        "config": {
+          "label": "Address Line 2",
+          "placeholder": "Suite xyz"
+        }
+      },
+      "company_city": {
+        "type": "Text",
+        "config": {
+          "label": "Company City",
+          "placeholder": "Lowell"
+        }
+      },
+      "company_state": {
+        "type": "Text",
+        "config": {
+          "label": "Company State",
+          "placeholder": "Massachusetts"
+        }
+      },
+      "company_country": {
+        "type": "Text",
+        "config": {
+          "label": "Company Country",
+          "placeholder": "US"
+        }
+      },
+      "company_website_url": {
+        "type": "Link",
+        "config": {
+          "label": "Company Website URL",
+          "placeholder": "https://contoso.com",
+          "allowTargetBlank": false,
+          "select": null
+        }
+      }
+    }
+  }
+}

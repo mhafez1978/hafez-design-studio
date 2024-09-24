@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { Nunito, Nunito_Sans } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
+import { PrismicPreview } from "@prismicio/next";
+import { hafez-design-studio } from "@/prismicio";
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -40,8 +42,11 @@ export default function RootLayout({
   return (
     //  className={clsx(nunito.variable, nunito_sans.variable)}
     // className={`${nunito.variable}, ${nunito_sans.variable}`}
-    <html lang="en" className={`${nunito.variable} ${nunito_sans.variable}`}>
-      <body>{children}</body>
+    <html lang="en">
+      <body className={`${nunito.variable} ${nunito_sans.variable}`}>
+        {children}
+         <PrismicPreview repositoryName={hafez-design-studio} />
+      </body>
     </html>
   );
 }
