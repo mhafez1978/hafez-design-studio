@@ -10,6 +10,10 @@ h1 {
   font-family: var(--font-nunito);
 } */
 
+.container {
+  width: 80vw;
+}
+
 .font-title {
   font-family: var(--font-nunito);
 }
