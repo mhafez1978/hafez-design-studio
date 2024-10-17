@@ -2,26 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+html,
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  width: 100vw; /* Ensure the body takes the entire width of the viewport */
 }
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.submenu-dropdown {
+  position: absolute; /* Ensure it appears on top of hero or other sections */
+  z-index: 70; /* Higher than header */
+  top: 100%; /* To make it appear just below the main menu item */
 }
