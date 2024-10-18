@@ -42,6 +42,11 @@ const nextConfig = {
         hostname: "img.freepik.com", // Allow placeholder image domain
         pathname: "*/**",
       },
+      {
+        protocol: "https",
+        hostname: "logos-world.net", // Allow placeholder image domain
+        pathname: "*/**",
+      },
     ],
   },
 };
