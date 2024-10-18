@@ -20,7 +20,10 @@ const Hero: React.FC<heroProps> = ({
     if (index === 5) {
       // Wrap the 6th word with a <span> and apply the 'italic' class
       return (
-        <span key={index} className="italic">
+        <span
+          key={index}
+          className="italic font-semibold leading-2 tracking-tight underline underline-offset-[20px]"
+        >
           {word}
         </span>
       );

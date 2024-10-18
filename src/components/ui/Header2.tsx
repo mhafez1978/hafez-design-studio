@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import DesktopMenu from "./DesktopMenu";
 import MobileMenu from "./MobileMenu";
 import Image from "next/image";
@@ -18,12 +18,12 @@ const Header: React.FC<HeaderProps> = ({ logo }) => {
   const [isShrunk, setIsShrunk] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
 
-  let lastScrollY = 0;
+  const lastScrollY = useRef(0); // Use useRef to persist the value across renders
 
   const listenScrollEvent = useCallback(() => {
     const currentScrollY = window.scrollY;
 
-    if (currentScrollY > lastScrollY) {
+    if (currentScrollY > lastScrollY.current) {
       if (currentScrollY > 50) {
         setIsShrunk(true);
       }
@@ -36,7 +36,7 @@ const Header: React.FC<HeaderProps> = ({ logo }) => {
         setIsShrunk(false); // Unshrink the header
       }
     }
-    lastScrollY = currentScrollY;
+    lastScrollY.current = currentScrollY; // Update the ref value
   }, []); // Empty dependency array to memoize the function
 
   useEffect(() => {
