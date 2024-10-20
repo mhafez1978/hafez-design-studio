@@ -5,21 +5,24 @@ const LandingServices: React.FC = () => {
   return (
     <section>
       <div className="w-screen min-h-screen flex flex-col pt-6 justify-start items-center">
-        <h3 className="text-3xl font-black mb-4">
-          Elegant interiors that reflect your personality
-        </h3>
-        <p className="w-[40%] mx-auto text-center text-md mb-8">
+        <h3 className="text-3xl font-black mb-2">Heroic Approach</h3>
+        <h5 className="text-xl font-semibold mb-4">
+          {" "}
+          Designing Spaces Where Diversity Meets Your Modern Style
+        </h5>
+        {/* <p className="w-[40%] mx-auto text-center text-md mb-8">
           Our goal is to create commercial and residential spaces that are
           functional, timeless and elegant, while maintaining a reflection of
           our clients personality.
-        </p>
+        </p> */}
         <div className="w-full min-h-[600px] flex flex-col lg:flex-row">
           <div className="w-full  flex flex-col justify-start items-center p-2 lg:w-1/2 lg:p-4">
             <Image
-              src="https://images.squarespace-cdn.com/content/v1/5d6d67f2387da800015dc00e/09025789-494e-4c74-a7d7-ff687ae4345c/Sansa+Interiors+-+Toronto%E2%80%99s+top+interior+design+firm.+Custom+Homes%2C+best+interior+design+in+toronto%2C+mininmal+interior+design.+Kitchen+design+in+toronto.+Artistic+Design+Firm.+Kitchen+Luxury+Home+Design.+Luxury+Home+Living+Interior+Designer?format=1500w"
+              // src="https://images.squarespace-cdn.com/content/v1/5d6d67f2387da800015dc00e/09025789-494e-4c74-a7d7-ff687ae4345c/Sansa+Interiors+-+Toronto%E2%80%99s+top+interior+design+firm.+Custom+Homes%2C+best+interior+design+in+toronto%2C+mininmal+interior+design.+Kitchen+design+in+toronto.+Artistic+Design+Firm.+Kitchen+Luxury+Home+Design.+Luxury+Home+Living+Interior+Designer?format=1500w"
+              src="/residential-01.jpg"
               alt=""
-              className="mb-4"
-              width={1200}
+              className="mb-4 h-full w-full"
+              width={1500}
               height={1000}
             />
             <h4 className="font-semibold text-4xl mb-4">

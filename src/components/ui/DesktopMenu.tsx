@@ -31,7 +31,7 @@ const DesktopMenu: React.FC<DesktopMenuProps> = ({ linkColor }) => {
           >
             {/* Render top-level menu */}
             <a
-              href={page.pageURL || "#"}
+              href={page.pageURL || ""}
               className={`${linkColor} hover:no-underline hover:text-sky-700`}
             >
               {page.pageTitle}

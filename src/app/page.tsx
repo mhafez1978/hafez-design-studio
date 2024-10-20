@@ -6,6 +6,9 @@ import Hero from "@/components/ui/Hero";
 import LandingServices from "@/components/ui/LandingServices";
 import About from "@/components/ui/About";
 import Partners from "@/components/ui/Partners";
+import Testimonials from "@/components/ui/Testimonials";
+import BlogRoll from "@/components/ui/BlogRoll";
+import FeaturedServices from "@/components/ui/FeaturedServices";
 
 export const metadata: Metadata = {
   title: "Hafez Design Studio | Home",
@@ -18,7 +21,8 @@ const HomePage: React.FC = () => {
       <Hero
         bgColor="bg-slate-950"
         heroTitle="Toronto’s Premier Interior Design Firm"
-        heroText="we transform spaces into sophisticated, functional and timeless interiors."
+        heroText="holistic approach to create inclusive, inspiring environments tailored to you."
+        heroText2="We blend unique materials, textures, and colors to create timeless spaces."
         heroButtonText="Let's Work Together"
       />
       <LandingServices />
@@ -39,6 +43,9 @@ const HomePage: React.FC = () => {
       </section> */}
       <About />
       <Partners />
+      <FeaturedServices />
+      <Testimonials />
+      <BlogRoll />
     </>
   );
 };

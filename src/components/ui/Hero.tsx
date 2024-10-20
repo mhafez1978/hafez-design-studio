@@ -1,9 +1,11 @@
+import Link from "next/link";
 import React from "react";
 
 interface heroProps {
   bgColor?: string;
   heroTitle?: string;
   heroText?: string;
+  heroText2?: string;
   heroButtonText?: string;
 }
 
@@ -11,6 +13,7 @@ const Hero: React.FC<heroProps> = ({
   bgColor,
   heroTitle,
   heroText,
+  heroText2,
   heroButtonText,
 }) => {
   const words = (heroText ? heroText.split(" ") : []) || null;
@@ -34,7 +37,7 @@ const Hero: React.FC<heroProps> = ({
   return (
     <div
       className={
-        "relative w-screen h-[62vh] mt-[20vh] flex flex-col justify-center items-center z-10 " +
+        "relative w-screen h-[66vh] mt-[20vh] flex flex-col justify-center items-center z-10 " +
         bgColor
       }
     >
@@ -45,7 +48,7 @@ const Hero: React.FC<heroProps> = ({
         muted
         className="absolute top-0 left-0 w-full h-full object-cover -z-10"
       >
-        <source src="/modern-home.mp4" type="video/mp4" />
+        <source src="/hero-walk-through.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div className="absolute top-0 left-0 w-full h-full object-cover bg-black/60 z-10"></div>
@@ -59,9 +62,13 @@ const Hero: React.FC<heroProps> = ({
             </React.Fragment>
           ))}
         </p>
-        <button className="border border-white text-white rounded-lg py-4 px-12 hover:bg-white hover:text-black hover:ring-4 hover:ring-offset-slate-200	">
+        <p className="text-xl text-white mb-8">{heroText2}</p>
+        <Link
+          href="/new-lead"
+          className="border border-white text-white rounded-lg py-4 px-12 hover:bg-white hover:text-black hover:ring-4 hover:ring-offset-slate-200	"
+        >
           {heroButtonText}
-        </button>
+        </Link>
       </div>
     </div>
   );

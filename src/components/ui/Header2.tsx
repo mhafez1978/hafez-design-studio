@@ -9,6 +9,7 @@ import { FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaHouzz } from "react-icons/fa6";
 import { FaPinterestP } from "react-icons/fa";
+import Link from "next/link";
 
 interface HeaderProps {
   logo?: string;
@@ -50,7 +51,7 @@ const Header: React.FC<HeaderProps> = ({ logo }) => {
 
   return (
     <header
-      className={`fixed w-screen top-0 left-0 w-full transition-all duration-500 ease-in-out flex flex-row justify-center items-center z-50 ${
+      className={`fixed w-screen top-0 left-0 w-full transition-all duration-500 ease-in-out flex flex-row justify-center items-center z-40 ${
         isHidden ? "h-0 opacity-0" : isShrunk ? "h-12" : "h-[20vh]"
       } bg-white px-4`}
     >
@@ -109,9 +110,12 @@ const Header: React.FC<HeaderProps> = ({ logo }) => {
         </nav>
       </div>
       <div className="hidden lg:flex lg:w-[12vw] lg:overflow-hidden">
-        <button className="bg-black text-white rounded-lg py-4 px-12 object-fit hover:bg-white hover:text-black hover:border hover:border-black hover:font-semibold">
+        <Link
+          href="/contact"
+          className="bg-black text-white rounded-lg py-4 px-12 object-fit hover:bg-white hover:text-black hover:border hover:border-black hover:font-semibold"
+        >
           Contact us
-        </button>
+        </Link>
       </div>
     </header>
   );

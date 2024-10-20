@@ -32,7 +32,7 @@ export const AppPages = [
   },
   {
     pageTitle: "About",
-    pageURL: "/about",
+    pageURL: "#about",
     description: "About Us",
   },
 ];

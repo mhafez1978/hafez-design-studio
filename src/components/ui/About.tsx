@@ -34,33 +34,35 @@ const About = () => {
     //     </div>
     //   </div>
     // </section>
-    <section className="w-full h-screen bg-white flex justify-center items-center mt-20 relative bg-[url('https://www.shutterstock.com/image-vector/architecture-design-blueprint-plans-vector-600nw-289628753.jpg')] bg-fixed bg-cover bg-no-repeat bg-bottom">
+    <section
+      id="about"
+      className="w-full h-screen bg-white flex justify-center items-center mt-20 relative bg-[url('https://www.shutterstock.com/image-vector/architecture-design-blueprint-plans-vector-600nw-289628753.jpg')] bg-fixed bg-cover bg-no-repeat bg-bottom"
+    >
       <div className="max-w-7xl w-full flex flex-col md:flex-row justify-center items-center relative">
         {/* Content Section */}
-        <div className="relative lg:top-[150px] lg:-right-1/4 lg:-translate-x-[30%] lg:-translate-y-[40%] bg-gray-100 p-10 text-start z-20 lg:w-[53%] lg:drop-shadow-2xl">
-          <h3 className="text-3xl font-semibold text-gray-800 mb-4">
-            &ldquo;I&apos;ve always thought that design can have equal
-            importance to the idea of internal architecture.&ldquo; - Zaha Hadid
-          </h3>
-          <p className="text-lg text-gray-600 mb-4">
-            We deliver spaces that are a reflection of who we are and a
-            collection of what we love. By blending our expertise with your
-            passion, we deliver sophisticated, sustainable designs that leave a
-            lasting impression.
+        <div className="relative bg-gray-100/90 p-10 text-start z-20 lg:top-[130px] lg:-right-1/4 lg:-translate-x-[30%] lg:-translate-y-[40%]  lg:w-[53%] lg:drop-shadow-2xl">
+          <h3 className="text-3xl font-semibold text-gray-800 mb-4">About</h3>
+          <p className="text-lg text-gray-600 mb-8">
+            We&apos;re an Ontario-based interior design firm specializing in
+            residential and commercial projects. We create beautiful,
+            personalized spaces that harmonize every detail, reflecting the
+            people who live and work in them.
           </p>
           <a
             href="/about"
-            className="inline-block bg-black text-white py-3 px-6 rounded-lg shadow-md hover:bg-gray-800 transition duration-300"
+            className="inline-block bg-black text-white bg-black text-white rounded-lg py-4 px-12 hover:bg-white hover:text-black hover:border hover:border-black"
           >
-            More About Us
+            Explore our process
           </a>
         </div>
         {/* Image Section */}
-        <div className="w-full h-full flex items-center justify-center lg:w-[66%]">
+        <div className="w-full h-[500px] flex items-center justify-center lg:w-[66%]">
           <Image
-            src="https://img.freepik.com/free-photo/modern-apartment-with-comfortable-sofa-decor-generated-by-ai_188544-38495.jpg"
+            // src="https://img.freepik.com/free-photo/modern-apartment-with-comfortable-sofa-decor-generated-by-ai_188544-38495.jpg"
+
+            src="/kitchen-01.jpg"
             alt="Founder of Sansa Interiors in Toronto"
-            className="h-full w-full rounded-lg shadow-lg object-cover"
+            className="h-full w-full rounded-lg shadow-lg object-cover drop-shadow-2xl"
             width={1000}
             height={800}
           />
