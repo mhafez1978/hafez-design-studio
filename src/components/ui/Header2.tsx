@@ -3,10 +3,9 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 import DesktopMenu from "./DesktopMenu";
 import MobileMenu from "./MobileMenu";
 import Image from "next/image";
-
-import { TbBrandFacebookFilled } from "react-icons/tb";
-import { FaInstagram } from "react-icons/fa";
-import { FaLinkedinIn } from "react-icons/fa";
+//import { TbBrandFacebookFilled } from "react-icons/tb";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
+//import { FaLinkedinIn } from "react-icons/fa";
 import { FaHouzz } from "react-icons/fa6";
 import { FaPinterestP } from "react-icons/fa";
 import Link from "next/link";
@@ -57,11 +56,34 @@ const Header: React.FC<HeaderProps> = ({ logo }) => {
     >
       <div className="hidden lg:flex lg:w-[12vw] lg:overflow-hidden">
         <div className="w-full flex flex-row gap-2 items-center justify-center">
-          <TbBrandFacebookFilled size={25} />
-          <FaInstagram size={25} />
-          <FaPinterestP size={25} />
-          <FaLinkedinIn size={25} />
-          <FaHouzz size={25} />
+          <Link
+            rel="noreferrer"
+            href="https://www.instagram.com/hafez_design_studio/"
+            target="_blank"
+          >
+            <FaInstagram size={25} />
+          </Link>
+          <Link
+            href="https://ca.pinterest.com/0p17zmfyfbo1gexstnrl9x1gdh28pj/?actingBusinessId=942871009395192982"
+            target="_blank"
+            rel="norefferer"
+          >
+            <FaPinterestP size={25} />
+          </Link>
+          <Link
+            href="https://www.facebook.com/profile.php?id=61561072196833"
+            target="_blank"
+            rel="norefferer"
+          >
+            <FaFacebook size={25} />
+          </Link>
+          <Link
+            href="https://www.houzz.com/hznb/professionals/interior-designers-and-decorators/hafez-design-studio-pfvwus-pf~1582415996"
+            target="_blank"
+            rel="norefferer"
+          >
+            <FaHouzz size={25} />
+          </Link>
         </div>
       </div>
       <div className="w-[76vw]">
@@ -72,25 +94,27 @@ const Header: React.FC<HeaderProps> = ({ logo }) => {
         >
           {/* Center (logo or h1) */}
           <div className="flex-grow flex justify-start lg:justify-center lg:items-center ">
-            {logo ? (
-              <Image
-                width={360}
-                height={100}
-                src={logo}
-                alt="logo"
-                className={`transition-all duration-500 ease-in-out ${
-                  isShrunk ? "h-8 w-24" : "h-16 w-36"
-                }`}
-              />
-            ) : (
-              <h1
-                className={`text-3xl font-black uppercase text-center text-slate-800 py-2 px-4 transition-all duration-500 ${
-                  isShrunk ? "text-sm" : "text-3xl"
-                }`}
-              >
-                Hafez<span className="font-thin"> Design Studio</span>
-              </h1>
-            )}
+            <Link href="/">
+              {logo ? (
+                <Image
+                  width={360}
+                  height={100}
+                  src={logo}
+                  alt="logo"
+                  className={`transition-all duration-500 ease-in-out ${
+                    isShrunk ? "h-8 w-24" : "h-16 w-36"
+                  }`}
+                />
+              ) : (
+                <h1
+                  className={`text-3xl font-black uppercase text-center text-slate-800 py-2 px-4 transition-all duration-500 ${
+                    isShrunk ? "text-sm" : "text-3xl"
+                  }`}
+                >
+                  Hafez<span className="font-thin"> Design Studio</span>
+                </h1>
+              )}
+            </Link>
           </div>
           {/* Left side (mobile menu) */}
           <div className="lg:hidden">

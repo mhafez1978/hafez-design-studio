@@ -47,7 +47,40 @@ const nextConfig = {
         hostname: "logos-world.net", // Allow placeholder image domain
         pathname: "*/**",
       },
+      {
+        protocol: "https",
+        hostname: "i.ibb.co", // Allow placeholder image domain
+        pathname: "*/**",
+      },
+      {
+        protocol: "https",
+        hostname: "api.hafezdesignstudio.com", // Allow placeholder image domain
+        pathname: "*/**",
+      },
+      {
+        protocol: "https",
+        hostname: "via.placeholder.com", // Allow placeholder image domain
+        pathname: "*/**",
+      },
+      {
+        protocol: "https",
+        hostname: "placehold.co", // Allow placeholder image domain
+        pathname: "*/**",
+      },
+      {
+        protocol: "https",
+        hostname: "secure.gravatar.com", // Allow placeholder image domain
+        pathname: "*/**",
+      },
     ],
+  },
+  async rewrites() {
+    return [
+      {
+        source: "/api/:path*",
+        destination: "http://api.hafezdesignstudio.com/wp-json/wp/v2/:path*", // Proxy to WordPress API
+      },
+    ];
   },
 };
 

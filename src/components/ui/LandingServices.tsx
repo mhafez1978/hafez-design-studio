@@ -5,16 +5,18 @@ const LandingServices: React.FC = () => {
   return (
     <section>
       <div className="w-screen min-h-screen flex flex-col pt-6 justify-start items-center">
-        <h3 className="text-3xl font-black mb-2">Heroic Approach</h3>
-        <h5 className="text-xl font-semibold mb-4">
+        <div className="w-full flex flex-col items-center py-20">
+          <h3 className="text-4xl font-black mb-4 italic">Design Approach</h3>
+          {/* <h5 className="text-xl font-semibold mb-4">
           {" "}
-          Designing Spaces Where Diversity Meets Your Modern Style
-        </h5>
-        {/* <p className="w-[40%] mx-auto text-center text-md mb-8">
-          Our goal is to create commercial and residential spaces that are
-          functional, timeless and elegant, while maintaining a reflection of
-          our clients personality.
-        </p> */}
+          Interior Designers &amp; General Contractors
+        </h5> */}
+          <p className="w-[40%] mx-auto text-center text-lg mb-8">
+            Blending global experience and design expertise,{" "}
+            <span className="font-black">Hafez</span> creates timeless,
+            sophisticated spaces that reflect your unique modern style.
+          </p>
+        </div>
         <div className="w-full min-h-[600px] flex flex-col lg:flex-row">
           <div className="w-full  flex flex-col justify-start items-center p-2 lg:w-1/2 lg:p-4">
             <Image
@@ -26,33 +28,33 @@ const LandingServices: React.FC = () => {
               height={1000}
             />
             <h4 className="font-semibold text-4xl mb-4">
-              <span className="italic">Residential</span> Interior Design
+              <span className="italic">Residential &amp; Commercial </span>
             </h4>
             <p className="mb-4">
-              Creating high-end custom interior design for homes with a holistic
-              approach.
+              Full service interior design and renovations services.
             </p>
             <button className="bg-black text-white rounded-lg py-4 px-12 hover:bg-white hover:text-black hover:border hover:border-black">
-              Explore Residential
+              Explore Services
             </button>
           </div>
           <div className="w-full flex flex-col justify-start items-center p-2 lg:w-1/2 lg:p-4">
             <Image
-              src="https://images.squarespace-cdn.com/content/v1/5d6d67f2387da800015dc00e/563b3b7e-d8c7-43e0-b749-d6c13e8c610d/Tabule_SansaInteriors_BrunoBelli-1.jpg"
+              // src="https://images.squarespace-cdn.com/content/v1/5d6d67f2387da800015dc00e/563b3b7e-d8c7-43e0-b749-d6c13e8c610d/Tabule_SansaInteriors_BrunoBelli-1.jpg"
+              src="/3d-modeling-realistic-render.jpg"
               alt=""
               className="mb-4"
               width={1200}
               height={1000}
             />
             <h4 className="font-semibold text-4xl mb-4">
-              <span className="italic">Commercial</span> Interior Design
+              <span className="italic">Designers &amp; Contractors</span>
             </h4>
             <p className="mb-4">
-              Creating a welcoming and inviting atmosphere for commercial
-              spaces.
+              Drafting and rendering services for felow interior designers and
+              contractors.
             </p>
             <button className="bg-black text-white rounded-lg py-4 px-12 hover:bg-white hover:text-black hover:border hover:border-black">
-              Explore Commercial
+              Explore Services
             </button>
           </div>
         </div>

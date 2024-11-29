@@ -14,3 +14,9 @@ body {
   z-index: 70; /* Higher than header */
   top: 100%; /* To make it appear just below the main menu item */
 }
+
+.wp-block-heading {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-size: 24pt;
+}

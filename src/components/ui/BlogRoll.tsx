@@ -1,96 +1,272 @@
-import Image from "next/image";
-import React from "react";
+"use client";
 
-export default function Blog() {
+import Link from "next/link";
+import React, { useState, useEffect } from "react";
+
+// export default function BlogRoll() {
+//   interface Post {
+//     id: string;
+//     title: { rendered: string };
+//     featured_image: string;
+//     excerpt: { rendered: string };
+//   }
+
+//   const [posts, setPosts] = useState<Post[]>([]);
+//   const [loading, setLoading] = useState(true);
+//   const [currentPage, setCurrentPage] = useState(1);
+//   const postsPerPage = 6;
+
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       const response = await fetch("http://localhost:3000/api/posts");
+//       const data = await response.json();
+//       setPosts(data);
+//       setLoading(false);
+//     };
+
+//     fetchData();
+//   }, []);
+
+//   const indexOfLastPost = currentPage * postsPerPage;
+//   const indexOfFirstPost = indexOfLastPost - postsPerPage;
+//   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+
+//   const totalPages = Math.ceil(posts.length / postsPerPage);
+
+//   const handlePageChange = (page: number) => {
+//     setCurrentPage(page);
+//   };
+
+//   return (
+//     <section className="bg-white">
+//       <div className="container mx-auto">
+//         <div className="-mx-4 flex flex-wrap">
+//           {loading ? (
+//             <div className="w-full h-[50vh] flex flex-col items-center justify-center text-center">
+//               <p className="text-sky-600 text-2xl font-light">Loading...</p>
+//             </div>
+//           ) : (
+//             <>
+//               {currentPosts.length === 0 && <p>No posts found</p>}
+//               {currentPosts.map((post) => (
+//                 <BlogItem
+//                   key={post.id}
+//                   id={post.id}
+//                   title={post.title.rendered}
+//                   image={post.featured_image}
+//                   paragraph={post.excerpt.rendered}
+//                 />
+//               ))}
+//             </>
+//           )}
+//         </div>
+
+//         {/* Pagination with Arrows */}
+//         <div className="flex justify-center items-center mt-8 space-x-2">
+//           {/* Previous Button */}
+//           <button
+//             onClick={() => currentPage > 1 && handlePageChange(currentPage - 1)}
+//             disabled={currentPage === 1}
+//             className={`px-4 py-2 rounded ${
+//               currentPage === 1
+//                 ? "bg-gray-200 text-gray-400 cursor-not-allowed"
+//                 : "bg-gray-200 text-gray-600 hover:bg-gray-300"
+//             }`}
+//           >
+//             &larr; Previous
+//           </button>
+
+//           {/* Page Numbers */}
+//           {Array.from({ length: totalPages }, (_, index) => (
+//             <button
+//               key={index}
+//               onClick={() => handlePageChange(index + 1)}
+//               className={`px-4 py-2 rounded ${
+//                 index + 1 === currentPage
+//                   ? "bg-black text-white"
+//                   : "bg-gray-200 text-gray-600 hover:bg-gray-300"
+//               }`}
+//             >
+//               {index + 1}
+//             </button>
+//           ))}
+
+//           {/* Next Button */}
+//           <button
+//             onClick={() =>
+//               currentPage < totalPages && handlePageChange(currentPage + 1)
+//             }
+//             disabled={currentPage === totalPages}
+//             className={`px-4 py-2 rounded ${
+//               currentPage === totalPages
+//                 ? "bg-gray-200 text-gray-400 cursor-not-allowed"
+//                 : "bg-gray-200 text-gray-600 hover:bg-gray-300"
+//             }`}
+//           >
+//             Next &rarr;
+//           </button>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+export default function BlogRoll() {
+  interface Post {
+    id: string;
+    title: { rendered: string };
+    featured_image: string;
+    excerpt: { rendered: string };
+  }
+
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 6;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/api/posts");
+        const data = await response.json();
+        setPosts(data);
+      } catch (error) {
+        console.error("Failed to fetch posts:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const totalPages = Math.ceil(posts.length / postsPerPage);
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
   return (
-    <section className="bg-white py-20 lg:py-[120px] ">
+    <section className="bg-white">
       <div className="container mx-auto">
         <div className="-mx-4 flex flex-wrap">
-          <div className="w-full px-4">
-            <div className="mx-auto mb-[60px] max-w-[510px] text-center lg:mb-20">
-              <span className="mb-2 block text-lg font-semibold text-primary">
-                Our Blogs
-              </span>
-              <h2 className="mb-4 text-3xl font-bold text-dark dark:text-white sm:text-4xl md:text-[40px]">
-                Our Recent News
-              </h2>
-              <p className="text-base text-body-color dark:text-dark-6">
-                There are many variations of passages of Lorem Ipsum available
-                but the majority have suffered alteration in some form.
+          {loading ? (
+            <div className="w-full h-[50vh] flex flex-col items-center justify-center text-center">
+              <p className="text-sky-600 text-2xl font-light">Loading...</p>
+            </div>
+          ) : posts.length === 0 ? (
+            <div className="w-full h-[50vh] flex flex-col items-center justify-center text-center">
+              <p className="text-gray-600 text-2xl font-light">
+                No posts found.
               </p>
             </div>
-          </div>
-          <BlogItem
-            image="https://i.ibb.co/7nd0pdm/image-1.jpg"
-            title="How to use Facebook ads to sell online courses"
-            paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit duis vehicula orciut ultricies facilisis magna."
-          />
-
-          <BlogItem
-            image="https://i.ibb.co/MhJsVk9/image-2.jpg"
-            title="What to do if template do not work properly"
-            paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit duis vehicula orciut ultricies facilisis magna."
-          />
-
-          <BlogItem
-            image="https://i.ibb.co/YWCPRHf/image-3.jpg"
-            title="Meet AutoManage, the best AI management tools"
-            paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit duis vehicula orciut ultricies facilisis magna."
-          />
+          ) : (
+            currentPosts.map((post) => (
+              <BlogItem
+                key={post.id}
+                id={post.id}
+                title={post.title.rendered}
+                image={post.featured_image}
+                paragraph={post.excerpt.rendered}
+              />
+            ))
+          )}
         </div>
+
+        {/* Pagination */}
+        {posts.length > postsPerPage && (
+          <div className="flex justify-center items-center mt-8 space-x-2">
+            {/* Previous Button */}
+            <button
+              onClick={() =>
+                currentPage > 1 && handlePageChange(currentPage - 1)
+              }
+              disabled={currentPage === 1}
+              className={`px-4 py-2 rounded ${
+                currentPage === 1
+                  ? "bg-gray-200 text-gray-400 cursor-not-allowed"
+                  : "bg-gray-200 text-gray-600 hover:bg-gray-300"
+              }`}
+            >
+              &larr; Previous
+            </button>
+
+            {/* Page Numbers */}
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index}
+                onClick={() => handlePageChange(index + 1)}
+                className={`px-4 py-2 rounded ${
+                  index + 1 === currentPage
+                    ? "bg-black text-white"
+                    : "bg-gray-200 text-gray-600 hover:bg-gray-300"
+                }`}
+              >
+                {index + 1}
+              </button>
+            ))}
+
+            {/* Next Button */}
+            <button
+              onClick={() =>
+                currentPage < totalPages && handlePageChange(currentPage + 1)
+              }
+              disabled={currentPage === totalPages}
+              className={`px-4 py-2 rounded ${
+                currentPage === totalPages
+                  ? "bg-gray-200 text-gray-400 cursor-not-allowed"
+                  : "bg-gray-200 text-gray-600 hover:bg-gray-300"
+              }`}
+            >
+              Next &rarr;
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
 }
 
 interface BlogIemProps {
+  id: string;
   title: string;
   image: string;
   paragraph: string;
 }
 
-function BlogItem({ title, image, paragraph }: BlogIemProps) {
+function BlogItem({ id, title, image, paragraph }: BlogIemProps) {
   return (
-    <div className="w-full px-4 md:w-1/2 lg:w-1/3">
-      <div className="group mb-8 rounded-lg border border-stroke p-5 ">
-        <div className="mb-7 overflow-hidden rounded">
-          <Image
+    <Link
+      href={`/blog/article/${id}`}
+      className="w-full px-4 md:w-1/2 lg:w-1/3"
+    >
+      <div className="group mb-8 rounded-lg border border-stroke p-5 h-[450px] flex flex-col justify-between">
+        <div className="mb-4 overflow-hidden rounded h-[200px]">
+          <img
             src={image}
             alt={title}
-            width={500}
-            height={300}
-            className="w-full object-cover object-center duration-200 group-hover:rotate-6 group-hover:scale-125"
+            className="w-full h-full object-cover object-center duration-200 group-hover:rotate-6 group-hover:scale-125"
           />
         </div>
-        <div>
-          <h3 className="mb-5 line-clamp-2 cursor-pointer text-xl font-bold text-dark duration-200 hover:text-primary ">
+        <div className="flex flex-col justify-between flex-grow">
+          <h3 className="mb-3 line-clamp-2 text-xl font-bold text-dark duration-200 hover:text-primary">
             {title}
           </h3>
-          <p className="mb-7 line-clamp-3 text-base text-body-color ">
-            {paragraph}
-          </p>
-          <a
-            href="javascript:void(0)"
-            className="inline-flex items-center gap-2 text-dark duration-200 hover:gap-3.5 hover:text-primary "
+          <div
+            className="mb-4 line-clamp-3 text-base text-body-color"
+            dangerouslySetInnerHTML={{ __html: paragraph }}
+          />
+          <button
+            type="button"
+            className="inline-flex items-center gap-2 text-dark duration-200 hover:gap-3.5 hover:text-primary"
           >
             Read More
-            <span>
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4.6875 16.0312C4.5 16.0312 4.3125 15.9687 4.1875 15.8125C3.90625 15.5312 3.90625 15.0938 4.1875 14.8125L13.6562 5.34375H6.09375C5.71875 5.34375 5.40625 5.03125 5.40625 4.65625C5.40625 4.28125 5.71875 3.96875 6.09375 3.96875H15.3125C15.6875 3.96875 16 4.28125 16 4.65625V13.9375C16 14.3125 15.6875 14.625 15.3125 14.625C14.9375 14.625 14.625 14.3125 14.625 13.9375V6.40625L5.1875 15.8438C5.0625 15.9688 4.875 16.0312 4.6875 16.0312Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </span>
-          </a>
+          </button>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

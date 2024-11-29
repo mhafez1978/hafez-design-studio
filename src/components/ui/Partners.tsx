@@ -13,7 +13,7 @@ const Partners: React.FC = () => {
             {/* LOGO 1 */}
             <li>
               <Image
-                src="https://logos-world.net/wp-content/uploads/2022/04/Crate-Barrel-Logo.png"
+                src="/blum.png"
                 alt="Crate & Barrel"
                 className="w-28"
                 width={65}
@@ -24,7 +24,7 @@ const Partners: React.FC = () => {
             {/* LOGO 2 */}
             <li>
               <Image
-                src="https://seeklogo.com/images/I/IKEA-logo-647286450F-seeklogo.com.png"
+                src="/richelle.png"
                 alt="Ikea"
                 className="w-28"
                 width={65}
