@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import Image from "next/image";
-import InstagramFeed from "@/components/ui/InstagramFeed";
+import Feed from "@/components/ui/Feed";
 
 export const metadata: Metadata = {
   title: "Hafez Design Studio | About us",
@@ -93,7 +93,9 @@ const AboutPage: React.FC = () => {
           </div>
         </div>
         <div className="container mx-auto mt-[10vh]">
-          <InstagramFeed />
+          {/* <div className="container mx-auto"> */}
+          <Feed />
+          {/* </div> */}
         </div>
       </div>
     </>

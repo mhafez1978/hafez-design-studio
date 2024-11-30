@@ -20,3 +20,8 @@ body {
   margin-top: 20px;
   font-size: 24pt;
 }
+
+#left-arrow,
+#right-arrow {
+  z-index: 9999 !important;
+}

@@ -25,10 +25,14 @@ export const AppPages = [
       },
     ],
   },
-
   {
     pageTitle: "Blog",
     pageURL: "/blog",
     description: "Blog",
+  },
+  {
+    pageTitle: "Community",
+    pageURL: "/community",
+    description: "We're Canadian",
   },
 ];
