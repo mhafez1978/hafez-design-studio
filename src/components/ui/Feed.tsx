@@ -30,7 +30,7 @@ const responsive = {
   },
 };
 
-const InstagramCarousel = () => {
+const Feed = () => {
   const [posts, setPosts] = useState<InstagramPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -93,86 +93,75 @@ const InstagramCarousel = () => {
   }
 
   return (
-    <div className="container mx-auto relative w-full py-10 z-20">
-      <h2 className="text-3xl font-bold text-center mb-8 italic">
-        Stay connected, follow us on Instagram.
-      </h2>
-      <div className="relative mx-4">
-        {" "}
-        {/* Adjusted container width */}
-        <Carousel
-          responsive={responsive}
-          infinite
-          autoPlay
-          autoPlaySpeed={3000}
-          keyBoardControl
-          showDots={false}
-          customTransition="transform 500ms ease-in-out"
-          removeArrowOnDeviceType={["tablet", "mobile"]}
-          itemClass="px-2 py-2"
-          containerClass="relative"
-          arrows={false}
-          customLeftArrow={
-            <button
-              id="left-arrow"
-              aria-label="Previous Slide"
-              className="absolute left-[-20px] top-1/2 transform -translate-y-1/2 bg-black text-white p-3 rounded-full z-50 hover:bg-gray-700"
-            >
-              &#8592;
-            </button>
-          }
-          customRightArrow={
-            <button
-              id="right-arrow"
-              aria-label="Next Slide"
-              className="absolute right-[-20px] top-1/2 transform -translate-y-1/2 bg-black text-white p-3 rounded-full z-50 hover:bg-gray-700"
-            >
-              &#8594;
-            </button>
-          }
-        >
-          {posts.map((post) => (
-            <div
-              key={post.id}
-              className="w-full bg-white border rounded shadow overflow-hidden h-[400px] flex flex-col justify-between"
-            >
-              {/* Media (Image or Video) */}
-              {post.media_type === "IMAGE" ||
-              post.media_type === "CAROUSEL_ALBUM" ? (
-                <img
-                  src={post.media_url}
-                  alt={post.caption || "Instagram Post"}
-                  className="w-full h-[60%] object-cover rounded-t"
-                />
-              ) : post.media_type === "VIDEO" ? (
-                <video
-                  controls
-                  className="w-full h-[60%] object-cover rounded-t"
-                >
-                  <source src={post.media_url} type="video/mp4" />
-                </video>
-              ) : null}
+    <div className="relative container mx-auto py-10">
+      <h2 className="text-3xl font-bold text-center mb-8">Instagram Feed</h2>
+      <Carousel
+        responsive={responsive}
+        infinite
+        autoPlay
+        autoPlaySpeed={3000}
+        keyBoardControl
+        showDots={false}
+        customTransition="transform 500ms ease-in-out"
+        itemClass="px-2"
+        containerClass="relative"
+        renderButtonGroupOutside
+        arrows
+        customLeftArrow={
+          <button
+            aria-label="Previous Slide"
+            className="absolute left-[-40px] top-1/2 transform -translate-y-1/2 bg-black text-white p-3 rounded-full hover:bg-gray-700 z-10"
+          >
+            &#8592;
+          </button>
+        }
+        customRightArrow={
+          <button
+            aria-label="Next Slide"
+            className="absolute right-[-40px] top-1/2 transform -translate-y-1/2 bg-black text-white p-3 rounded-full hover:bg-gray-700 z-10"
+          >
+            &#8594;
+          </button>
+        }
+      >
+        {posts.map((post) => (
+          <div
+            key={post.id}
+            className="w-full bg-white border rounded shadow overflow-hidden h-[400px] flex flex-col justify-between"
+          >
+            {/* Media (Image or Video) */}
+            {post.media_type === "IMAGE" ||
+            post.media_type === "CAROUSEL_ALBUM" ? (
+              <img
+                src={post.media_url}
+                alt={post.caption || "Instagram Post"}
+                className="w-full h-[60%] object-cover rounded-t"
+              />
+            ) : post.media_type === "VIDEO" ? (
+              <video controls className="w-full h-[60%] object-cover rounded-t">
+                <source src={post.media_url} type="video/mp4" />
+              </video>
+            ) : null}
 
-              {/* Content */}
-              <div className="p-4">
-                <p className="text-sm text-gray-700 mb-4">
-                  {truncateCaption(post.caption)}
-                </p>
-                <a
-                  href={post.permalink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-500 underline"
-                >
-                  View on Instagram
-                </a>
-              </div>
+            {/* Content */}
+            <div className="p-4">
+              <p className="text-sm text-gray-700 mb-4">
+                {truncateCaption(post.caption)}
+              </p>
+              <a
+                href={post.permalink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 underline"
+              >
+                View on Instagram
+              </a>
             </div>
-          ))}
-        </Carousel>
-      </div>
+          </div>
+        ))}
+      </Carousel>
     </div>
   );
 };
 
-export default InstagramCarousel;
+export default Feed;
