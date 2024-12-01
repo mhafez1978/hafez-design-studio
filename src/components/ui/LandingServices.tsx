@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const LandingServices: React.FC = () => {
   return (
@@ -33,9 +34,12 @@ const LandingServices: React.FC = () => {
             <p className="mb-4">
               Full service interior design and renovations services.
             </p>
-            <button className="bg-black text-white rounded-lg py-4 px-12 hover:bg-white hover:text-black hover:border hover:border-black">
+            <Link
+              href="residential/services"
+              className="bg-black text-white rounded-lg py-4 px-12 hover:bg-white hover:text-black hover:border hover:border-black"
+            >
               Explore Services
-            </button>
+            </Link>
           </div>
           <div className="w-full flex flex-col justify-start items-center p-2 lg:w-1/2 lg:p-4">
             <Image
@@ -53,9 +57,12 @@ const LandingServices: React.FC = () => {
               Drafting and rendering services for felow interior designers and
               contractors.
             </p>
-            <button className="bg-black text-white rounded-lg py-4 px-12 hover:bg-white hover:text-black hover:border hover:border-black">
+            <Link
+              href="designers/services"
+              className="bg-black text-white rounded-lg py-4 px-12 hover:bg-white hover:text-black hover:border hover:border-black"
+            >
               Explore Services
-            </button>
+            </Link>
           </div>
         </div>
       </div>
