@@ -1,46 +1,34 @@
+// import { NextResponse } from "next/server";
+
 // export async function GET() {
-//   try {
-//     const res = await fetch(
-//       "http://api.hafezdesignstudio.com/wp-json/wp/v2/posts?_embed",
-//       {
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//       }
+//   const res = await fetch(
+//     "https://api.hafezdesignstudio.com/wp-json/wp/v2/posts",
+//     {
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//     }
+//   );
+
+//   if (!res.ok) {
+//     console.error(`Failed to fetch posts: ${res.statusText}`);
+//     return NextResponse.json(
+//       { message: "Failed to fetch posts", error: res.statusText },
+//       { status: res.status }
 //     );
-//     const data = await res.json();
-
-//     // Process data to include the featured image URL directly
-//     const processedData = data.map((post: any) => ({
-//       ...post,
-//       featured_image:
-//         post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
-//         "https://via.placeholder.com/600x400.png",
-//     }));
-
-//     return new Response(JSON.stringify(processedData), { status: 200 });
-//   } catch (error) {
-//     console.error("Error fetching WordPress posts:", error);
-//     return new Response("Internal Server Error", { status: 500 });
 //   }
+
+//   const data = await res.json();
+
+//   return NextResponse.json(data);
 // }
 
-export interface WordPressPost {
-  id: number;
-  title: { rendered: string };
-  excerpt: { rendered: string };
-  _embedded?: {
-    "wp:featuredmedia"?: Array<{
-      source_url: string;
-    }>;
-  };
-  [key: string]: unknown; // To handle additional properties you may not explicitly define
-}
+import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
     const res = await fetch(
-      "http://api.hafezdesignstudio.com/wp-json/wp/v2/posts?_embed",
+      "https://api.hafezdesignstudio.com/wp-json/wp/v2/posts?_embed",
       {
         headers: {
           "Content-Type": "application/json",
@@ -49,22 +37,30 @@ export async function GET() {
     );
 
     if (!res.ok) {
-      throw new Error(`Failed to fetch posts: ${res.statusText}`);
+      console.error(`Failed to fetch posts: ${res.statusText}`);
+      return NextResponse.json(
+        { message: "Failed to fetch posts", error: res.statusText },
+        { status: res.status }
+      );
     }
 
-    const data: WordPressPost[] = await res.json();
+    const data = await res.json();
 
-    // Process data to include the featured image URL directly
-    const processedData = data.map((post) => ({
-      ...post,
-      featured_image:
-        post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
-        "https://via.placeholder.com/600x400.png",
-    }));
-
-    return new Response(JSON.stringify(processedData), { status: 200 });
+    return NextResponse.json(data, { status: 200 });
   } catch (error) {
-    console.error("Error fetching WordPress posts:", error);
-    return new Response("Internal Server Error", { status: 500 });
+    if (error instanceof Error) {
+      console.error("Error fetching posts:", error.message);
+      return NextResponse.json(
+        { message: "Internal Server Error", error: error.message },
+        { status: 500 }
+      );
+    }
+
+    // Handle unexpected non-Error exceptions
+    console.error("Unexpected error:", error);
+    return NextResponse.json(
+      { message: "Internal Server Error" },
+      { status: 500 }
+    );
   }
 }

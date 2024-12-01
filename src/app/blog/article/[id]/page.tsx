@@ -1,297 +1,11 @@
-// // "use client";
-
-// // import React, { useEffect, useState } from "react";
-// // import Image from "next/image";
-// // import { useParams } from "next/navigation";
-
-// // interface Tag {
-// //   id: number;
-// //   slug: string;
-// //   name: string;
-// // }
-
-// // const Post = () => {
-// //   const params = useParams();
-// //   const id = params.id;
-
-// //   const [post, setPost] = useState<any>(null);
-// //   const [tagsData, setTagsData] = useState<Tag[]>([]);
-// //   const [previousPost, setPreviousPost] = useState<any>(null);
-// //   const [nextPost, setNextPost] = useState<any>(null);
-// //   const [error, setError] = useState<string | null>(null);
-
-// //   useEffect(() => {
-// //     const fetchData = async () => {
-// //       try {
-// //         // Fetch the current post
-// //         const postRes = await fetch(
-// //           `https://api.hafezdesignstudio.com/wp-json/wp/v2/posts/${id}?_embed`
-// //         );
-// //         if (!postRes.ok) {
-// //           throw new Error(`Post not found: ${postRes.status}`);
-// //         }
-// //         const post = await postRes.json();
-// //         setPost(post);
-
-// //         // Fetch all posts
-// //         const allPostsRes = await fetch(
-// //           `https://api.hafezdesignstudio.com/wp-json/wp/v2/posts`
-// //         );
-// //         const allPosts = await allPostsRes.json();
-
-// //         // Find current, previous, and next posts
-// //         const currentPostIndex = allPosts.findIndex(
-// //           (p: { id: number }) => p.id === parseInt(id)
-// //         );
-// //         setPreviousPost(
-// //           currentPostIndex > 0 ? allPosts[currentPostIndex - 1] : null
-// //         );
-// //         setNextPost(
-// //           currentPostIndex < allPosts.length - 1
-// //             ? allPosts[currentPostIndex + 1]
-// //             : null
-// //         );
-
-// //         // Fetch tags
-// //         if (post.tags.length > 0) {
-// //           const tagsRes = await fetch(
-// //             `https://api.hafezdesignstudio.com/wp-json/wp/v2/tags?include=${post.tags.join(
-// //               ","
-// //             )}`
-// //           );
-// //           const tags = await tagsRes.json();
-// //           setTagsData(tags);
-// //         }
-// //       } catch (err: any) {
-// //         console.error("Error fetching data:", err.message);
-// //         setError(err.message);
-// //       }
-// //     };
-
-// //     fetchData();
-// //   }, [id]);
-
-// //   if (error) {
-// //     return <p>{error}</p>;
-// //   }
-
-// //   if (!post) {
-// //     return <p>Loading...</p>;
-// //   }
-
-// //   const author = post._embedded?.author?.[0] || {
-// //     name: "Unknown Author",
-// //     avatar_urls: { 96: "https://placehold.co/40x40" },
-// //   };
-
-// //   const postImage =
-// //     post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
-// //     "https://via.placeholder.com/600x400.png";
-
-// //   const sanitizedContent = post.content.rendered.trim();
-
-// //   return (
-// //     <section className="bg-white py-20 dark:bg-dark lg:py-[225px]">
-// //       <div className="container mx-auto">
-// //         {/* Main Post Content */}
-// //         <div className="w-full px-4 lg:w-10/12 lg:mx-auto xl:w-8/12 xl:mx-auto">
-// //           <h1 className="mb-6 text-[26px] font-bold">{post.title.rendered}</h1>
-// //           <div>
-// //             <div className="w-full mt-4 mb-4 border border-red-500">
-// //               <img
-// //                 src={post._embedded?.["wp:featuredmedia"]?.[0]?.source_url}
-// //                 alt={post.title.rendered}
-// //                 className="object-cover w-full h-full"
-// //               />
-// //             </div>
-// //             <div
-// //               dangerouslySetInnerHTML={{ __html: sanitizedContent }}
-// //               className="mb-8"
-// //             />
-// //           </div>
-// //         </div>
-
-// //         {/* Previous and Next Posts */}
-// //         <div className="flex justify-between">
-// //           {previousPost && (
-// //             <a href={`/latest-news/article/${previousPost.id}`}>
-// //               Previous: {previousPost.title.rendered}
-// //             </a>
-// //           )}
-// //           {nextPost && (
-// //             <a href={`/latest-news/article/${nextPost.id}`}>
-// //               Next: {nextPost.title.rendered}
-// //             </a>
-// //           )}
-// //         </div>
-// //       </div>
-// //     </section>
-// //   );
-// // };
-
-// // export default Post;
-
-// // "use client";
-
-// // import React, { useEffect, useState } from "react";
-// // import Image from "next/image";
-// // import { useParams } from "next/navigation";
-
-// // interface Tag {
-// //   id: number;
-// //   slug: string;
-// //   name: string;
-// // }
-
-// // const Post = () => {
-// //   const params = useParams();
-// //   const id = params.id;
-
-// //   const [post, setPost] = useState<any>(null);
-// //   const [tagsData, setTagsData] = useState<Tag[]>([]);
-// //   const [previousPost, setPreviousPost] = useState<any>(null);
-// //   const [nextPost, setNextPost] = useState<any>(null);
-// //   const [error, setError] = useState<string | null>(null);
-
-// //   useEffect(() => {
-// //     const fetchData = async () => {
-// //       try {
-// //         // Fetch the current post
-// //         const postRes = await fetch(
-// //           `https://api.hafezdesignstudio.com/wp-json/wp/v2/posts/${id}?_embed`
-// //         );
-// //         if (!postRes.ok) {
-// //           throw new Error(`Post not found: ${postRes.status}`);
-// //         }
-// //         const post = await postRes.json();
-// //         setPost(post);
-
-// //         // Fetch all posts
-// //         const allPostsRes = await fetch(
-// //           `https://api.hafezdesignstudio.com/wp-json/wp/v2/posts`
-// //         );
-// //         const allPosts = await allPostsRes.json();
-
-// //         // Find current, previous, and next posts
-// //         const currentPostIndex = allPosts.findIndex(
-// //           (p: { id: number }) => p.id === parseInt(id)
-// //         );
-// //         setPreviousPost(
-// //           currentPostIndex > 0 ? allPosts[currentPostIndex - 1] : null
-// //         );
-// //         setNextPost(
-// //           currentPostIndex < allPosts.length - 1
-// //             ? allPosts[currentPostIndex + 1]
-// //             : null
-// //         );
-
-// //         // Fetch tags
-// //         if (post.tags.length > 0) {
-// //           const tagsRes = await fetch(
-// //             `https://api.hafezdesignstudio.com/wp-json/wp/v2/tags?include=${post.tags.join(
-// //               ","
-// //             )}`
-// //           );
-// //           const tags = await tagsRes.json();
-// //           setTagsData(tags);
-// //         }
-// //       } catch (err: any) {
-// //         console.error("Error fetching data:", err.message);
-// //         setError(err.message);
-// //       }
-// //     };
-
-// //     fetchData();
-// //   }, [id]);
-
-// //   if (error) {
-// //     return <p>{error}</p>;
-// //   }
-
-// //   if (!post) {
-// //     return <p>Loading...</p>;
-// //   }
-
-// //   // Extract Author and Avatar with Fallbacks
-// //   const author = post._embedded?.author?.[0] || {
-// //     name: "Ihab Hafez",
-// //     avatar_urls: { 96: "https://placehold.co/40x40" },
-// //   };
-
-// //   const avatarUrl = author.avatar_urls?.[96] || "https://placehold.co/40x40";
-
-// //   // Extract Post Image
-// //   const postImage =
-// //     post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
-// //     "https://via.placeholder.com/600x400.png";
-
-// //   const sanitizedContent = post.content.rendered.trim();
-
-// //   return (
-// //     <section className="bg-white py-20 dark:bg-dark lg:py-[225px]">
-// //       <div className="container mx-auto">
-// //         {/* Main Post Content */}
-// //         <div className="w-full px-4">
-// //           <h1 className="mb-6 text-[26px] font-bold">{post.title.rendered}</h1>
-// //           <div className="flex items-center mb-4">
-// //             <Image
-// //               src={avatarUrl}
-// //               alt={author.name}
-// //               width={40}
-// //               height={40}
-// //               className="rounded-full shadow-xl"
-// //             />
-// //             <p className="ml-2 text-sm">{author.name}</p>
-// //           </div>
-// //           <div className="w-full h-[40vh] mt-4 mb-4">
-// //             <img
-// //               src={postImage}
-// //               alt={post.title.rendered}
-// //               className="object-fill w-full h-full"
-// //             />
-// //           </div>
-// //           <div
-// //             id="post-content"
-// //             dangerouslySetInnerHTML={{ __html: sanitizedContent }}
-// //             className="mb-8"
-// //           />
-// //         </div>
-
-// //         {/* Previous and Next Posts */}
-// //         <div className="w-full px-4">
-// //           <div className="flex justify-between font-black hover:underline">
-// //             {previousPost && (
-// //               <a href={`/blog/article/${previousPost.id}`}>
-// //                 Previous: {previousPost.title.rendered}
-// //               </a>
-// //             )}
-// //             <a href="/blog">All Articles</a>
-// //             {nextPost && (
-// //               <a href={`/blog/article/${nextPost.id}`}>
-// //                 Next: {nextPost.title.rendered}
-// //               </a>
-// //             )}
-// //           </div>
-// //         </div>
-// //       </div>
-// //     </section>
-// //   );
-// // };
-
-// // export default Post;
-
 // "use client";
-
 // import React, { useEffect, useState } from "react";
 // import Image from "next/image";
 // import { useParams } from "next/navigation";
 
-// // Define the structure of a WordPress post
 // interface EmbeddedAuthor {
 //   name: string;
-//   avatar_urls: {
-//     96: string;
-//   };
+//   avatar_urls: { 96: string };
 // }
 
 // interface FeaturedMedia {
@@ -302,7 +16,6 @@
 //   id: number;
 //   title: { rendered: string };
 //   content: { rendered: string };
-//   excerpt: { rendered: string };
 //   tags: number[];
 //   _embedded?: {
 //     author?: EmbeddedAuthor[];
@@ -312,7 +25,6 @@
 
 // interface Tag {
 //   id: number;
-//   slug: string;
 //   name: string;
 // }
 
@@ -322,81 +34,105 @@
 
 //   const [post, setPost] = useState<Post | null>(null);
 //   const [tagsData, setTagsData] = useState<Tag[]>([]);
+//   const [featuredImage, setFeaturedImage] = useState<string | null>(null);
 //   const [previousPost, setPreviousPost] = useState<Post | null>(null);
 //   const [nextPost, setNextPost] = useState<Post | null>(null);
 //   const [error, setError] = useState<string | null>(null);
 
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       try {
-//         // Fetch the current post
-//         const postRes = await fetch(
-//           `https://api.hafezdesignstudio.com/wp-json/wp/v2/posts/${id}?_embed`
-//         );
-//         if (!postRes.ok) {
-//           throw new Error(`Post not found: ${postRes.status}`);
-//         }
-//         const post: Post = await postRes.json();
-//         setPost(post);
-
-//         // Fetch all posts
-//         const allPostsRes = await fetch(
-//           `https://api.hafezdesignstudio.com/wp-json/wp/v2/posts`
-//         );
-//         const allPosts: Post[] = await allPostsRes.json();
-
-//         // Find current, previous, and next posts
-//         const currentPostIndex = allPosts.findIndex(
-//           (p) => p.id === parseInt(id)
-//         );
-//         setPreviousPost(
-//           currentPostIndex > 0 ? allPosts[currentPostIndex - 1] : null
-//         );
-//         setNextPost(
-//           currentPostIndex < allPosts.length - 1
-//             ? allPosts[currentPostIndex + 1]
-//             : null
-//         );
-
-//         // Fetch tags
-//         if (post.tags.length > 0) {
-//           const tagsRes = await fetch(
-//             `https://api.hafezdesignstudio.com/wp-json/wp/v2/tags?include=${post.tags.join(
-//               ","
-//             )}`
-//           );
-//           const tags: Tag[] = await tagsRes.json();
-//           setTagsData(tags);
-//         }
-//       } catch (err) {
-//         console.error("Error fetching data:", (err as Error).message);
-//         setError((err as Error).message);
+//   const fetchPostData = async () => {
+//     try {
+//       // Fetch the main post data
+//       const postRes = await fetch(
+//         `https://api.hafezdesignstudio.com/wp-json/wp/v2/posts/${id}`
+//       );
+//       if (!postRes.ok) {
+//         throw new Error(`Post not found: ${postRes.status}`);
 //       }
-//     };
+//       const postData = await postRes.json();
+//       setPost(postData);
 
-//     fetchData();
-//   }, [id]);
+//       // Fetch featured image
+//       const featuredMedia =
+//         postData.post_featured_image ||
+//         "https://via.placeholder.com/600x400.png";
+//       setFeaturedImage(featuredMedia);
+
+//       // Fetch tags
+//       if (postData.tags.length > 0) {
+//         const tagsRes = await fetch(
+//           `https://api.hafezdesignstudio.com/wp-json/wp/v2/tags?include=${postData.tags.join(
+//             ","
+//           )}`
+//         );
+//         if (!tagsRes.ok) {
+//           throw new Error(`Tags not found: ${tagsRes.status}`);
+//         }
+//         const tags = await tagsRes.json();
+//         setTagsData(tags);
+//       }
+//     } catch (err) {
+//       console.error("Error fetching post data:", (err as Error).message);
+//       setError((err as Error).message);
+//     }
+//   };
+
+//   const fetchAdjacentPosts = async () => {
+//     try {
+//       const allPostsRes = await fetch(`/api/posts`);
+//       if (!allPostsRes.ok) {
+//         throw new Error(`Failed to fetch all posts: ${allPostsRes.status}`);
+//       }
+//       const allPosts: Post[] = await allPostsRes.json();
+
+//       const currentPostIndex = allPosts.findIndex((p) => p.id === parseInt(id));
+//       setPreviousPost(
+//         currentPostIndex > 0 ? allPosts[currentPostIndex - 1] : null
+//       );
+//       setNextPost(
+//         currentPostIndex < allPosts.length - 1
+//           ? allPosts[currentPostIndex + 1]
+//           : null
+//       );
+//     } catch (err) {
+//       console.error("Error fetching adjacent posts:", (err as Error).message);
+//       setError((err as Error).message);
+//     }
+//   };
+
+//   useEffect(() => {
+//     // Fetch all data initially
+//     fetchPostData();
+//     fetchAdjacentPosts();
+
+//     // Set up revalidation interval
+//     const interval = setInterval(() => {
+//       fetchPostData();
+//       fetchAdjacentPosts();
+//     }, 60000); // 60,000ms = 1 minute
+
+//     // Cleanup interval on component unmount
+//     return () => clearInterval(interval);
+//   }, [id, fetchPostData, fetchAdjacentPosts]);
 
 //   if (error) {
-//     return <p>{error}</p>;
+//     return <p className="text-red-500">{error}</p>;
 //   }
 
 //   if (!post) {
 //     return <p>Loading...</p>;
 //   }
 
-//   // Extract Author and Avatar with Fallbacks
-//   const author = post._embedded?.author?.[0] || {
-//     name: "Unknown Author",
-//     avatar_urls: { 96: "https://placehold.co/40x40" },
-//   };
+//   // Extract author and avatar
+//   const author = post._embedded?.author?.[0] ||
+//     post.author_details || {
+//       name: "Ihab Hafez",
+//       avatar: "https://placehold.co/40x40",
+//     };
 
-//   const avatarUrl = author.avatar_urls?.[96] || "https://placehold.co/40x40";
-
-//   // Extract Post Image
-//   const postImage =
-//     post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
-//     "https://via.placeholder.com/600x400.png";
+//   // Accessing author details
+//   const authorName = author.name || "Unknown Author";
+//   const authorAvatar =
+//     author.avatar || author.avatar_urls?.["96"] || "https://placehold.co/40x40";
 
 //   const sanitizedContent = post.content.rendered.trim();
 
@@ -408,8 +144,8 @@
 //           <h1 className="mb-6 text-[26px] font-bold">{post.title.rendered}</h1>
 //           <div className="flex items-center mb-4">
 //             <Image
-//               src={avatarUrl}
-//               alt={author.name}
+//               src={authorAvatar}
+//               alt={authorName}
 //               width={40}
 //               height={40}
 //               className="rounded-full shadow-xl"
@@ -418,7 +154,7 @@
 //           </div>
 //           <div className="w-full h-[40vh] mt-4 mb-4">
 //             <img
-//               src={postImage}
+//               src={featuredImage || "https://via.placeholder.com/600x400.png"}
 //               alt={post.title.rendered}
 //               className="object-fill w-full h-full"
 //             />
@@ -428,14 +164,24 @@
 //             dangerouslySetInnerHTML={{ __html: sanitizedContent }}
 //             className="mb-8"
 //           />
-//           <div>
-//             {tagsData.map((tag, idx) => (
-//               <span key={idx} className="mr-2">
-//                 {tag.name}
-//               </span>
-//             ))}
-//           </div>
 //         </div>
+
+//         {/* Tags Section */}
+//         {tagsData.length > 0 && (
+//           <div className="w-full px-4 mb-8">
+//             <h3 className="text-lg font-bold mb-4">Related Tags</h3>
+//             <div className="max-w-[450px] flex flex-wrap gap-2">
+//               {tagsData.map((tag) => (
+//                 <span
+//                   key={tag.id}
+//                   className="text-sm bg-black text-white rounded py-2 px-4"
+//                 >
+//                   {tag.name}
+//                 </span>
+//               ))}
+//             </div>
+//           </div>
+//         )}
 
 //         {/* Previous and Next Posts */}
 //         <div className="w-full px-4">
@@ -461,17 +207,13 @@
 // export default Post;
 
 "use client";
-
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 
-// Define types for API responses
 interface EmbeddedAuthor {
   name: string;
-  avatar_urls: {
-    96: string;
-  };
+  avatar_urls: { 96: string };
 }
 
 interface FeaturedMedia {
@@ -479,10 +221,10 @@ interface FeaturedMedia {
 }
 
 interface Post {
+  author_details: EmbeddedAuthor | undefined;
   id: number;
   title: { rendered: string };
   content: { rendered: string };
-  excerpt: { rendered: string };
   tags: number[];
   _embedded?: {
     author?: EmbeddedAuthor[];
@@ -492,109 +234,127 @@ interface Post {
 
 interface Tag {
   id: number;
-  slug: string;
   name: string;
 }
 
 const Post = () => {
   const params = useParams();
-  const id = Array.isArray(params.id) ? params.id[0] : params.id; // Ensure `id` is a string
+  const id = Array.isArray(params.id) ? params.id[0] : params.id;
 
   const [post, setPost] = useState<Post | null>(null);
   const [tagsData, setTagsData] = useState<Tag[]>([]);
+  const [featuredImage, setFeaturedImage] = useState<string | null>(null);
   const [previousPost, setPreviousPost] = useState<Post | null>(null);
   const [nextPost, setNextPost] = useState<Post | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (!id) {
-      setError("Invalid post ID");
-      return;
-    }
-
-    const fetchData = async () => {
-      try {
-        // Fetch the current post
-        const postRes = await fetch(
-          `https://api.hafezdesignstudio.com/wp-json/wp/v2/posts/${id}?_embed`
-        );
-        if (!postRes.ok) {
-          throw new Error(`Post not found: ${postRes.status}`);
-        }
-        const post: Post = await postRes.json();
-        setPost(post);
-
-        // Fetch all posts
-        const allPostsRes = await fetch(
-          `https://api.hafezdesignstudio.com/wp-json/wp/v2/posts`
-        );
-        const allPosts: Post[] = await allPostsRes.json();
-
-        // Find current, previous, and next posts
-        const currentPostIndex = allPosts.findIndex(
-          (p) => p.id === parseInt(id)
-        );
-        setPreviousPost(
-          currentPostIndex > 0 ? allPosts[currentPostIndex - 1] : null
-        );
-        setNextPost(
-          currentPostIndex < allPosts.length - 1
-            ? allPosts[currentPostIndex + 1]
-            : null
-        );
-
-        // Fetch tags
-        if (post.tags.length > 0) {
-          const tagsRes = await fetch(
-            `https://api.hafezdesignstudio.com/wp-json/wp/v2/tags?include=${post.tags.join(
-              ","
-            )}`
-          );
-          const tags: Tag[] = await tagsRes.json();
-          setTagsData(tags);
-        }
-      } catch (err) {
-        console.error("Error fetching data:", (err as Error).message);
-        setError((err as Error).message);
+  // Fetch main post data
+  const fetchPostData = useCallback(async () => {
+    try {
+      const postRes = await fetch(
+        `https://api.hafezdesignstudio.com/wp-json/wp/v2/posts/${id}`
+      );
+      if (!postRes.ok) {
+        throw new Error(`Post not found: ${postRes.status}`);
       }
-    };
+      const postData = await postRes.json();
+      setPost(postData);
 
-    fetchData();
+      // Set featured image
+      const featuredMedia =
+        postData.post_featured_image ||
+        "https://via.placeholder.com/600x400.png";
+      setFeaturedImage(featuredMedia);
+
+      // Fetch tags
+      if (postData.tags.length > 0) {
+        const tagsRes = await fetch(
+          `https://api.hafezdesignstudio.com/wp-json/wp/v2/tags?include=${postData.tags.join(
+            ","
+          )}`
+        );
+        if (!tagsRes.ok) {
+          throw new Error(`Tags not found: ${tagsRes.status}`);
+        }
+        const tags = await tagsRes.json();
+        setTagsData(tags);
+      }
+    } catch (err) {
+      console.error("Error fetching post data:", (err as Error).message);
+      setError((err as Error).message);
+    }
   }, [id]);
 
+  // Fetch adjacent posts
+  const fetchAdjacentPosts = useCallback(async () => {
+    try {
+      const allPostsRes = await fetch(`/api/posts`);
+      if (!allPostsRes.ok) {
+        throw new Error(`Failed to fetch all posts: ${allPostsRes.status}`);
+      }
+      const allPosts: Post[] = await allPostsRes.json();
+
+      const currentPostIndex = allPosts.findIndex(
+        (p) => p.id === parseInt(id, 10)
+      );
+      setPreviousPost(
+        currentPostIndex > 0 ? allPosts[currentPostIndex - 1] : null
+      );
+      setNextPost(
+        currentPostIndex < allPosts.length - 1
+          ? allPosts[currentPostIndex + 1]
+          : null
+      );
+    } catch (err) {
+      console.error("Error fetching adjacent posts:", (err as Error).message);
+      setError((err as Error).message);
+    }
+  }, [id]);
+
+  useEffect(() => {
+    fetchPostData();
+    fetchAdjacentPosts();
+
+    const interval = setInterval(() => {
+      fetchPostData();
+      fetchAdjacentPosts();
+    }, 60000); // 60 seconds
+
+    return () => clearInterval(interval);
+  }, [fetchPostData, fetchAdjacentPosts]);
+
   if (error) {
-    return <p className="text-red-500 text-center">{error}</p>;
+    return <p className="text-red-500">{error}</p>;
   }
 
   if (!post) {
-    return <p className="text-center">Loading...</p>;
+    return <p>Loading...</p>;
   }
 
-  // Extract Author and Avatar with Fallbacks
-  const author = post._embedded?.author?.[0] || {
-    name: "Unknown Author",
-    avatar_urls: { 96: "https://placehold.co/40x40" },
-  };
+  // Extract author and avatar
+  const author = post._embedded?.author?.[0] ||
+    post.author_details || {
+      name: "Ihab Hafez",
+      avatar: "https://placehold.co/40x40",
+    };
 
-  const avatarUrl = author.avatar_urls?.[96] || "https://placehold.co/40x40";
-
-  // Extract Post Image
-  const postImage =
-    post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
-    "https://via.placeholder.com/600x400.png";
+  const authorName = author.name || "Unknown Author";
+  const authorAvatar =
+    "avatar" in author
+      ? author.avatar
+      : author.avatar_urls?.["96"] || "https://placehold.co/40x40";
 
   const sanitizedContent = post.content.rendered.trim();
 
   return (
     <section className="bg-white py-20 dark:bg-dark lg:py-[225px]">
       <div className="container mx-auto">
-        {/* Main Post Content */}
         <div className="w-full px-4">
           <h1 className="mb-6 text-[26px] font-bold">{post.title.rendered}</h1>
           <div className="flex items-center mb-4">
             <Image
-              src={avatarUrl}
-              alt={author.name}
+              src={authorAvatar}
+              alt={authorName}
               width={40}
               height={40}
               className="rounded-full shadow-xl"
@@ -603,7 +363,7 @@ const Post = () => {
           </div>
           <div className="w-full h-[40vh] mt-4 mb-4">
             <img
-              src={postImage}
+              src={featuredImage || "https://via.placeholder.com/600x400.png"}
               alt={post.title.rendered}
               className="object-fill w-full h-full"
             />
@@ -613,19 +373,24 @@ const Post = () => {
             dangerouslySetInnerHTML={{ __html: sanitizedContent }}
             className="mb-8"
           />
-          <div>
-            {tagsData.map((tag, idx) => (
-              <span
-                key={idx}
-                className="mr-2 text-sm bg-gray-200 px-2 py-1 rounded"
-              >
-                {tag.name}
-              </span>
-            ))}
-          </div>
         </div>
 
-        {/* Previous and Next Posts */}
+        {tagsData.length > 0 && (
+          <div className="w-full px-4 mb-8">
+            <h3 className="text-lg font-bold mb-4">Related Tags</h3>
+            <div className="max-w-[450px] flex flex-wrap gap-2">
+              {tagsData.map((tag) => (
+                <span
+                  key={tag.id}
+                  className="text-sm bg-black text-white rounded py-2 px-4"
+                >
+                  {tag.name}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
         <div className="w-full px-4">
           <div className="flex justify-between font-black hover:underline">
             {previousPost && (

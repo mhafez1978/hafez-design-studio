@@ -5,10 +5,10 @@ const BlogPage = async () => {
     <div className="py-[225px] ">
       <div className="container mx-auto text-left lg:mb-20">
         <span className="mb-2 block text-2xl font-semibold text-gray-600 px-4 italic">
-          Our Blogs
+          Our Blog
         </span>
         <h2 className="mb-4 text-5xl font-bold text-dark px-4">
-          Our Recent News
+          Our Latest News &amp; Articles
         </h2>
         {/* <p className="text-base text-body-color dark:text-dark-6">
           There are many variations of passages of Lorem Ipsum available but the

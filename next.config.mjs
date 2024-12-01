@@ -72,13 +72,18 @@ const nextConfig = {
         hostname: "secure.gravatar.com", // Allow placeholder image domain
         pathname: "*/**",
       },
+      {
+        protocol: "https",
+        hostname: "api.hafezdesignstudio.com", // Allow placeholder image domain
+        pathname: "*/**",
+      },
     ],
   },
   async rewrites() {
     return [
       {
         source: "/api/:path*",
-        destination: "http://api.hafezdesignstudio.com/wp-json/wp/v2/:path*", // Proxy to WordPress API
+        destination: "https://api.hafezdesignstudio.com/wp-json/wp/v2/:path*", // Proxy to WordPress API
       },
     ];
   },
