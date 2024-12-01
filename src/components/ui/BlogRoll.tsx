@@ -6,6 +6,8 @@ import Link from "next/link";
 interface Post {
   id: number;
   title: { rendered: string }; // Title is an object with a `rendered` property
+  author_details: { name: string }; // Author is an object with a `name` property
+  // content: { rendered: string }; // Content is also an object with a `rendered` property
   excerpt: { rendered: string }; // Excerpt is an object with a `rendered` property
   post_featured_image: string; // Custom field for featured image
 }
@@ -26,6 +28,8 @@ export default function BlogRoll() {
         }
         const data = await response.json();
         setPosts(data);
+
+        console.log(data);
       } catch (error) {
         console.error("Error fetching posts:", error);
       } finally {
@@ -66,9 +70,11 @@ export default function BlogRoll() {
               <BlogItem
                 key={post.id}
                 id={post.id}
+                author={post.author_details.name} // Access the `name` property
                 title={post.title.rendered} // Access the `rendered` property
                 image={post.post_featured_image} // Use custom field for featured image
-                paragraph={post.excerpt.rendered} // Access the `rendered` property
+                // content={post.content.rendered}
+                excerpt={post.excerpt.rendered} // Access the `rendered` property
               />
             ))
           )}
@@ -128,11 +134,20 @@ export default function BlogRoll() {
 interface BlogItemProps {
   id: number;
   title: string;
+  author: string;
   image: string;
-  paragraph: string;
+  excerpt: string;
+  // content: string;
 }
 
-function BlogItem({ id, title, image, paragraph }: BlogItemProps) {
+function BlogItem({
+  id,
+  author,
+  title,
+  image,
+  excerpt,
+}: // content,
+BlogItemProps) {
   return (
     <Link
       href={`/blog/article/${id}`}
@@ -150,10 +165,19 @@ function BlogItem({ id, title, image, paragraph }: BlogItemProps) {
           <h3 className="mb-3 line-clamp-2 text-xl font-bold text-dark duration-200 hover:text-primary">
             {title}
           </h3>
+
           <div
             className="mb-2 line-clamp-3 text-base text-body-color"
-            dangerouslySetInnerHTML={{ __html: paragraph }}
+            dangerouslySetInnerHTML={{ __html: author }}
           />
+          <div
+            className="mb-2 line-clamp-3 text-base text-body-color"
+            dangerouslySetInnerHTML={{ __html: excerpt }}
+          />
+          {/* <div
+            className="mb-2 line-clamp-3 text-base text-body-color"
+            dangerouslySetInnerHTML={{ __html: content }}
+          /> */}
           <button
             type="button"
             className="inline-flex items-center gap-2 text-dark duration-200 hover:gap-3.5 hover:text-primary"
