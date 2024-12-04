@@ -12,38 +12,24 @@ const AboutPage: React.FC = () => {
   return (
     <>
       <div className="w-screen py-[280px]">
-        <div className="container mx-auto flex flex-row-reverse">
-          <div className="w-1/2 flex flex-col">
-            {/* <h1 className="font-black text-4xl mb-4">
-              About Hafez Design Studio
-            </h1>
-            <p className="text-base mb-4 pr-6 text-justify">
-              We are a full-service interior design studio specializing in
-              creating timeless, sophisticated, modern interiors. Our expertise
-              includes transforming kitchens, bathrooms, and designing and
-              finishing basements for rental or personal use. We also excel in
-              custom millwork and fit-ins, creating designs that enhance
-              functionality, and suit your lifestyle while increasing storage
-              and property value. In addition, we offer design services to
-              fellow interior designers and general contractors, helping them
-              save time, reduce costs, and improve project efficiency
-            </p> */}
-            <div className="pr-4">
+        <div className="container mx-auto flex flex-col gap-2 lg:flex-row-reverse lg:gap-0">
+          <div className="w-full flex flex-col gap-y-6 lg:w-1/2">
+            <div className="w-full h-full pb-4">
               <Image
                 src="/ehab.png"
                 alt="Founder of Sansa Interiors in Toronto"
-                className="h-[90%] w-full border-0 object-cover"
-                width={900}
-                height={400}
+                className="object-cover h-full w-full"
+                width={1500}
+                height={1000}
               />
             </div>
           </div>
-          <div className="w-1/2 flex flex-col gap-6">
+          <div className="w-full flex flex-col justify-center items-center gap-6 px-6 lg:w-1/2">
             {/* <h2 className="text-2xl font-black mb-2">Meet Your Team</h2> */}
-            <h3 className="text-2xl font-black mb-2">
+            <h3 className="text-3xl font-black mb-2">
               About Ihab Hafez, Principal Designer
             </h3>
-            <p className="pr-6 text-justify mb-4">
+            {/* <p className="text-lg text-justify mb-4">
               Designs with a passion for creating timeless, modern spaces that
               blend function and style, Ihab Hafez brings a unique global
               perspective to Hafez Design Studio. Ihab&apos;s journey began with
@@ -58,7 +44,7 @@ const AboutPage: React.FC = () => {
               design, Ihab returned to full-time studies in Canada, balancing
               his roles as a dedicated husband and a father.
             </p>
-            <p className="pr-6 text-justify">
+            <p className="text-lg text-justify mb-4">
               His determination and hard work led to academic and professional
               recognition, including winning the Staples Business Advantage
               Scholarship for Corporate Design. Internships at Connect Resource
@@ -75,6 +61,25 @@ const AboutPage: React.FC = () => {
               clients who value creativity, craftsmanship, and a personalized
               touch, ensuring that every project not only meets but exceeds
               expectations.
+            </p> */}
+            <p className="text-lg text-justify mb-4">
+              Ihab Hafez, founder of Hafez Design Studio, combines a global
+              perspective with a passion for creating timeless, modern spaces
+              that blend function and style. With a bachelor&apos;s degree in
+              interior design from Egypt and nearly a decade teaching Art &
+              Design in Kuwait, he developed a detail-oriented approach rooted
+              in creativity and empathy. His journey continued in Canada, where
+              he earned recognition like the Staples Business Advantage
+              Scholarship and gained valuable experience through internships in
+              residential and commercial design
+            </p>
+            <p className="hidden text-lg text-justify mb-4 lg:block">
+              At Hafez Design Studio, Ihab transforms spaces into functional
+              works of art, whether it&apos;s a sleek kitchen renovation, custom
+              millwork, or comprehensive interior design. Drawing inspiration
+              from travel and modern aesthetics, his designs prioritize quality,
+              innovation, and a personalized touch, ensuring every project
+              exceeds client expectations.
             </p>
           </div>
         </div>

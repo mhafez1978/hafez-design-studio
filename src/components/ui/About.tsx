@@ -40,10 +40,8 @@ const About = () => {
     >
       <div className="max-w-7xl w-full flex flex-col md:flex-row justify-center items-center relative">
         {/* Content Section */}
-        <div className="relative bg-gray-100/90 p-10 text-start z-20 lg:top-[130px] lg:-right-1/4 lg:-translate-x-[30%] lg:-translate-y-[40%]  lg:w-[53%] lg:drop-shadow-2xl">
-          <h3 className="text-3xl font-semibold text-gray-800 mb-4">
-            About Hafez Design Studio
-          </h3>
+        <div className="relative bg-gray-100/90 p-10 text-start z-20 lg:top-[250px] lg:-right-1/4 lg:-translate-x-[30%] lg:-translate-y-[40%]  lg:w-[53%] lg:drop-shadow-2xl">
+          <h3 className="text-6xl font-semibold text-gray-800 mb-4">About</h3>
           <p className="text-lg text-gray-600 mb-8">
             {/* We&apos;re an Ontario-based interior design firm specializing in
             residential and commercial projects. We create beautiful,
@@ -67,7 +65,7 @@ const About = () => {
           </a>
         </div>
         {/* Image Section */}
-        <div className="w-full h-[500px] flex items-center justify-center lg:w-[66%]">
+        <div className="w-full h-[720px] flex items-center justify-center lg:w-[80%]">
           <Image
             // src="https://img.freepik.com/free-photo/modern-apartment-with-comfortable-sofa-decor-generated-by-ai_188544-38495.jpg"
             src="/kitchen-01.jpg"

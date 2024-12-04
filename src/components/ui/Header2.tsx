@@ -133,10 +133,10 @@ const Header: React.FC<HeaderProps> = ({ logo }) => {
           <DesktopMenu linkColor="text-slate-800" />
         </nav>
       </div>
-      <div className="hidden lg:flex lg:w-[12vw] lg:overflow-hidden">
+      <div className="hidden lg:flex lg:w-[16vw] lg:overflow-hidden">
         <Link
           href="/contact"
-          className="bg-black text-white rounded-lg py-4 px-12 object-fit hover:bg-white hover:text-black hover:border hover:border-black hover:font-semibold"
+          className="w-[300px] bg-black text-white rounded-lg py-4 px-4 text-center object-fit shadow-xl hover:bg-white hover:text-black hover:border hover:border-black hover:font-semibold"
         >
           Contact us
         </Link>
