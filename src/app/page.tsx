@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Hero from "@/components/ui/Hero";
 import LandingServices from "@/components/ui/LandingServices";
 import About from "@/components/ui/About";
-import Partners from "@/components/ui/Partners";
+//import Partners from "@/components/ui/Partners";
 import Testimonials from "@/components/ui/Testimonials";
 
 export const metadata: Metadata = {
@@ -17,12 +17,12 @@ const HomePage: React.FC = () => {
       <Hero
         bgColor="bg-slate-950"
         heroTitle="Toronto’s Premier Interior Design Startup"
-        heroText="Timeless, Sophisticated, and Modern Interiors."
-        heroText2="Full Service Interior Design Serving the GTA and Surrounding Areas."
+        heroText="Timeless, Sophisticated, and Modern Interiors"
+        heroText2="Full Service Interior Design Serving Toronto and beyond"
         heroButtonText="Work with us"
       />
       <LandingServices />
-      <Partners />
+      {/* <Partners /> */}
       <About />
       <Testimonials />
     </>

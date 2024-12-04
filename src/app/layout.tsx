@@ -4,6 +4,7 @@ import Header from "@/components/ui/Header2";
 import "./globals.css";
 import Footer from "@/components/ui/Footer";
 import Theme from "@/components/util/Theme";
+import Feed from "@/components/ui/Feed";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -35,6 +36,11 @@ export default function RootLayout({
       >
         <Header />
         <Theme>{children}</Theme>
+        <div className="container mx-auto mt-[4vh] mb-[14vh]">
+          {/* <div className="container mx-auto"> */}
+          <Feed />
+          {/* </div> */}
+        </div>
         <Footer />
       </body>
     </html>

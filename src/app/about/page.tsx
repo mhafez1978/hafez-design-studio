@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import Image from "next/image";
-import Feed from "@/components/ui/Feed";
+//import Feed from "@/components/ui/Feed";
 
 export const metadata: Metadata = {
   title: "Hafez Design Studio | About us",
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const AboutPage: React.FC = () => {
   return (
     <>
-      <div className="w-screen py-[280px]">
+      <div className="w-screen pt-[200px]">
         <div className="container mx-auto flex flex-col gap-2 lg:flex-row-reverse lg:gap-0">
           <div className="w-full flex flex-col gap-y-6 lg:w-1/2">
             <div className="w-full h-full pb-4">
@@ -24,45 +24,13 @@ const AboutPage: React.FC = () => {
               />
             </div>
           </div>
-          <div className="w-full flex flex-col justify-center items-center gap-6 px-6 lg:w-1/2">
+          <div className="w-full flex flex-col justify-center items-start gap-2 px-6 lg:w-1/2">
             {/* <h2 className="text-2xl font-black mb-2">Meet Your Team</h2> */}
-            <h3 className="text-3xl font-black mb-2">
-              About Ihab Hafez, Principal Designer
-            </h3>
-            {/* <p className="text-lg text-justify mb-4">
-              Designs with a passion for creating timeless, modern spaces that
-              blend function and style, Ihab Hafez brings a unique global
-              perspective to Hafez Design Studio. Ihab&apos;s journey began with
-              a bachelor&apos;s degree in interior design in 2006 from Egypt,
-              where he mastered the art of manual drafting and traditional
-              rendering techniques, laying the foundation for his distinctive,
-              detail-oriented approach. After two years in the design industry,
-              he transitioned to education, spending nearly a decade teaching
-              Art & Design in international schools in Kuwait. He taught and
-              developed design curricula, instilling creativity, empathy and
-              critical thinking in his students. Driven by a deep passion for
-              design, Ihab returned to full-time studies in Canada, balancing
-              his roles as a dedicated husband and a father.
-            </p>
-            <p className="text-lg text-justify mb-4">
-              His determination and hard work led to academic and professional
-              recognition, including winning the Staples Business Advantage
-              Scholarship for Corporate Design. Internships at Connect Resource
-              and the City of Mississauga solidified his expertise in space
-              planning, feasibility studies, and project management, enriching
-              his understanding of both residential and commercial design. At
-              Hafez Design Studio, Ihab&apos;s goal is to transform everyday
-              spaces into functional works of art, combining travel and modern
-              aesthetics with thoughtful, practical design solutions. Whether
-              it&apos;s a sleek kitchen renovation, a sophisticated custom
-              millwork project, or comprehensive interior. design for
-              residential or commercial spaces, Ihab&apos;s work reflects a
-              commitment to quality, beauty, and innovation. He partners with
-              clients who value creativity, craftsmanship, and a personalized
-              touch, ensuring that every project not only meets but exceeds
-              expectations.
-            </p> */}
-            <p className="text-lg text-justify mb-4">
+            <h3 className="text-3xl font-black">Ihab Hafez</h3>
+            <h4 className="text-lg font-semibold mb-4">
+              Founder &amp; Principal Designer
+            </h4>
+            <p className="text-lg text-justify mb-2">
               Ihab Hafez, founder of Hafez Design Studio, combines a global
               perspective with a passion for creating timeless, modern spaces
               that blend function and style. With a bachelor&apos;s degree in
@@ -73,7 +41,7 @@ const AboutPage: React.FC = () => {
               Scholarship and gained valuable experience through internships in
               residential and commercial design
             </p>
-            <p className="hidden text-lg text-justify mb-4 lg:block">
+            <p className="hidden text-lg text-justify mb-2 lg:block">
               At Hafez Design Studio, Ihab transforms spaces into functional
               works of art, whether it&apos;s a sleek kitchen renovation, custom
               millwork, or comprehensive interior design. Drawing inspiration
@@ -83,24 +51,45 @@ const AboutPage: React.FC = () => {
             </p>
           </div>
         </div>
-        <div className="container mx-auto mt-[10vh]">
-          <div className="w-full flex flex-col justify-center items-center">
-            <h2 className="text-3xl font-semibold mb-[5vh]">
+        <div className="container mx-auto">
+          <div className="w-full flex flex-col justify-center items-start">
+            <h2 className="text-3xl font-semibold mb-4">
               Designer Credentials &amp; Awards
             </h2>
-            <Image
-              src="/cert.png"
-              alt="Founder of Sansa Interiors in Toronto"
-              className="object-cover w-[50%] h-[50%] border  shadow-lg"
-              width={800}
-              height={600}
-            />
+            <p className="w-[90%] mb-8">
+              At Hafez Design Studio, Principal Designer Ihab N. Hafez is deeply
+              committed to continuous learning as a cornerstone of delivering
+              exceptional design solutions. We stay at the forefront of industry
+              trends and innovations by reading books and engaging in
+              professional development opportunities. This dedication to growth
+              allows us to craft functional timeless, sophisticated, and modern
+              spaces that meet the unique needs of our clients while exceeding
+              expectations
+            </p>
+            <div className="flex flex-col gap-4 lg:flex-row lg:pl-6">
+              <Image
+                src="/nkb-cert.png"
+                alt="Founder of Sansa Interiors in Toronto"
+                className="object-cover border shadow-lg"
+                width={400}
+                height={300}
+              />
+              <Image
+                src="/cert.png"
+                alt="Founder of Sansa Interiors in Toronto"
+                className="object-cover border shadow-lg"
+                width={400}
+                height={300}
+              />
+              <Image
+                src="/nkb-cert-02.png"
+                alt="Founder of Sansa Interiors in Toronto"
+                className="object-cover border shadow-lg"
+                width={400}
+                height={300}
+              />
+            </div>
           </div>
-        </div>
-        <div className="container mx-auto mt-[10vh]">
-          {/* <div className="container mx-auto"> */}
-          <Feed />
-          {/* </div> */}
         </div>
       </div>
     </>

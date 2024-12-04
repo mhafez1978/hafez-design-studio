@@ -55,7 +55,7 @@ const Hero: React.FC<heroProps> = ({
       {/* Overlay content */}
       <div className="w-[70%] min-h-1/2 mx-auto text-center z-30">
         <h2 className="text-xl text-white mb-4">{heroTitle}</h2>
-        <p className="text-6xl font-semibold text-white mb-6 tracking-light">
+        <p className="text-[2rem] font-semibold text-white mb-6 tracking-light lg:text-6xl">
           {modifiedHeroText.map((word, index) => (
             <React.Fragment key={index}>
               {word}&nbsp; {/* This adds a space after each word */}

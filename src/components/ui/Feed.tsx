@@ -94,7 +94,9 @@ const Feed = () => {
 
   return (
     <div className="relative container mx-auto py-10">
-      <h2 className="text-3xl font-bold text-center mb-8">Instagram Feed</h2>
+      <h2 className="text-3xl font-bold text-center mb-8 italic">
+        Follow us on Instagram
+      </h2>
       <Carousel
         responsive={responsive}
         infinite

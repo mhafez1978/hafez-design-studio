@@ -30,9 +30,4 @@ export const AppPages = [
     pageURL: "/blog",
     description: "Blog",
   },
-  {
-    pageTitle: "Community",
-    pageURL: "/community",
-    description: "We're Canadian",
-  },
 ];
