@@ -361,7 +361,7 @@ const Post = () => {
             />
             <p className="ml-2 text-sm">{author.name}</p>
           </div>
-          <div className="w-full h-[40vh] mt-4 mb-4">
+          <div className="w-full h-full mt-4 mb-4">
             <img
               src={featuredImage || "https://via.placeholder.com/600x400.png"}
               alt={post.title.rendered}
