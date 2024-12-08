@@ -12,7 +12,7 @@ import { TbBathFilled } from "react-icons/tb";
 
 const FeaturedServices = () => {
   return (
-    <div className="container mx-auto py-22 mt-[220px] mb-[250px]">
+    <div className="container mx-auto py-22 mt-[250px] mb-[250px]">
       <div className="px-4 flex flex-wrap">
         <div className="w-full px-4">
           <div className="mb-[60px] lg:mb-[70px]">
@@ -41,12 +41,12 @@ const FeaturedServices = () => {
           </div>
         </div>
       </div>
-      <div className="w-full flex grid grid-cols-3 mb-6 px-6">
+      <div className="w-full flex grid grid-cols-4 mb-6 px-6">
         <ServiceCard
-          title="Interior Design"
-          details="Lorem Ipsum is simply dummy text of the printing and industry."
-          btnLink="/#"
-          btnText="Learn More"
+          title="Full-Service Interior Design"
+          details="From concept to completion, we handle every detail of your residential project. This includes space planning, material selection, furniture, lighting, and décor, ensuring your home is all unified, reflects your style, and meets your needs. seamlessly."
+          // btnLink="/#"
+          // btnText="Learn More"
           icon={
             // <svg
             //   width="36"
@@ -62,37 +62,51 @@ const FeaturedServices = () => {
         />
         <ServiceCard
           title="Kitchen Renovations"
-          details="Lorem Ipsum is simply dummy text of the printing and industry."
-          btnLink="/#"
-          btnText="Learn More"
+          details="We craft functional and stylish kitchens tailored to your lifestyle. From layout planning to selecting finishes and cabinetry, our designs ensure your kitchen becomes the heart of your home, blending practicality with beauty."
+          // btnLink="/#"
+          // btnText="Learn More"
           icon={<MdKitchen color="white" size={35} />}
         />
         <ServiceCard
           title="Legal Basement"
-          details="Lorem Ipsum is simply dummy text of the printing and industry."
-          btnLink="/#"
-          btnText="Learn More"
+          details="We specialize in designing legal basements that maximize functionality and meet building code requirements. Our designs combine practicality with a polished finish, whether for additional living space, rental income, or storage."
+          // btnLink="/#"
+          // btnText="Learn More"
           icon={<BsBuildingDown color="white" size={35} />}
         />
         <ServiceCard
           title="Millwork & Fit in"
-          details="Lorem Ipsum is simply dummy text of the printing and industry."
-          btnLink="/#"
-          btnText="Learn More"
+          details="Our custom millwork designs add unique character and functionality to your space. From built-ins to cabinetry, we ensure seamless integration with your interior, enhancing both style and utility."
+          // btnLink="/#"
+          // btnText="Learn More"
           icon={<FiTable color="white" size={35} />}
         />
         <ServiceCard
           title="Bath Renovations"
-          details="Lorem Ipsum is simply dummy text of the printing and industry."
-          btnLink="/#"
-          btnText="Learn More"
+          details="We create serene and functional bathroom spaces that cater to your needs. From efficient layouts to selecting luxurious fixtures and finishes, our designs transform your bathroom into a relaxing retreat."
+          // btnLink="/#"
+          // btnText="Learn More"
           icon={<TbBathFilled color="white" size={35} />}
         />
         <ServiceCard
           title="Procurement"
-          details="Lorem Ipsum is simply dummy text of the printing and industry."
-          btnLink="/#"
-          btnText="Learn More"
+          details="We handle the sourcing and purchasing of furniture, fixtures, and materials, ensuring the best quality and value. Our streamlined process saves you time and delivers everything needed to bring your design to life."
+          // btnLink="/#"
+          // btnText="Learn More"
+          icon={<FaTruckFront color="white" size={35} />}
+        />
+        <ServiceCard
+          title="Layout & Furniture Selection"
+          details="We design optimized layouts and curate furniture pieces that perfectly suit your space and style. Every element is selected to enhance comfort, functionality, and aesthetic appeal."
+          // btnLink="/#"
+          // btnText="Learn More"
+          icon={<FaTruckFront color="white" size={35} />}
+        />
+        <ServiceCard
+          title="Project Management"
+          details="We oversee every aspect of your project, coordinating timelines, contractors, and deliveries to ensure a smooth process. Our hands-on approach guarantees your vision is executed flawlessly and on schedule."
+          // btnLink="/#"
+          // btnText="Learn More"
           icon={<FaTruckFront color="white" size={35} />}
         />
       </div>
@@ -106,16 +120,16 @@ interface ServiceCardProps {
   icon: ReactNode; // ReactNode will cover any React elements, including SVGs
   title: string;
   details: string;
-  btnText: string;
-  btnLink: string;
+  btnText?: string;
+  btnLink?: string;
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({
   icon,
   title,
   details,
-  btnText,
-  btnLink,
+  // btnText,
+  // btnLink,
 }) => {
   return (
     <div className="w-full px-4">
@@ -128,12 +142,12 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           {title}
         </h4>
         <p className="mb-9 text-black">{details}</p>
-        <a
+        {/* <a
           href={btnLink}
           className="text-base font-medium text-dark hover:text-primary dark:text-white"
         >
           {btnText}
-        </a>
+        </a> */}
       </div>
     </div>
   );

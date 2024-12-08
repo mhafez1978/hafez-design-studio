@@ -1,8 +1,208 @@
-"use client";
-import React, { useState, useEffect } from "react";
-//import Image from "next/image";
+// "use client";
 
-// Define the form data type with proper typing for serviceInterest
+// import React, { useState, useEffect, useCallback } from "react";
+// import emailjs from "emailjs-com";
+
+// interface FormData {
+//   fullname: string;
+//   phone: string;
+//   email: string;
+//   serviceInterest: string[];
+//   additionalRooms: string;
+//   hobbies: string;
+//   projectTimeframe: string;
+//   budget: string;
+//   decisionMakers: string;
+//   favouriteFood: string;
+//   favouriteDrink: string;
+//   favouriteFlowers: string;
+//   pastExperience: string;
+//   referral: string;
+//   spaceFeedback: string;
+// }
+
+// const NewClientIntakeForm: React.FC = () => {
+//   const [formData, setFormData] = useState<FormData>({
+//     fullname: "",
+//     phone: "",
+//     email: "",
+//     serviceInterest: [],
+//     additionalRooms: "",
+//     hobbies: "",
+//     projectTimeframe: "",
+//     budget: "",
+//     decisionMakers: "",
+//     favouriteFood: "",
+//     favouriteDrink: "",
+//     favouriteFlowers: "",
+//     pastExperience: "",
+//     referral: "",
+//     spaceFeedback: "",
+//   });
+
+//   const [errors, setErrors] = useState<Partial<FormData>>({});
+//   const [touched, setTouched] = useState<
+//     Partial<Record<keyof FormData, boolean>>
+//   >({});
+//   const [isDisabled, setIsDisabled] = useState(true);
+//   const [emailStatus, setEmailStatus] = useState<string | null>(null);
+
+//   const handleInputChange = (
+//     e: React.ChangeEvent<
+//       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+//     >
+//   ) => {
+//     const { name, value } = e.target;
+//     setFormData((prev) => ({ ...prev, [name]: value }));
+//     setErrors((prev) => ({ ...prev, [name]: "" }));
+//   };
+
+//   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//     const { value, checked } = e.target;
+//     setFormData((prev) => ({
+//       ...prev,
+//       serviceInterest: checked
+//         ? [...prev.serviceInterest, value]
+//         : prev.serviceInterest.filter((service) => service !== value),
+//     }));
+//   };
+
+//   const handleBlur = (
+//     e: React.FocusEvent<
+//       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+//     >
+//   ) => {
+//     const { name } = e.target;
+//     setTouched((prev) => ({ ...prev, [name]: true }));
+//   };
+
+//   const validateForm = useCallback((): Partial<FormData> => {
+//     const errors: Partial<FormData> = {};
+//     if (!formData.fullname.trim()) errors.fullname = "Full name is required.";
+//     if (!formData.phone.trim()) errors.phone = "Phone number is required.";
+//     if (!formData.email.trim() || !/\S+@\S+\.\S+/.test(formData.email)) {
+//       errors.email = "A valid email is required.";
+//     }
+//     return errors;
+//   }, [formData]);
+
+//   useEffect(() => {
+//     const formErrors = validateForm();
+//     setErrors((prev) =>
+//       Object.keys(formErrors).reduce((acc, key) => {
+//         if (touched[key as keyof FormData]) {
+//           acc[key as keyof FormData] = formErrors[key as keyof FormData];
+//         }
+//         return acc;
+//       }, {} as Partial<FormData>)
+//     );
+//     setIsDisabled(Object.keys(formErrors).length > 0);
+//   }, [formData, validateForm, touched]);
+
+//   // const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+//   //   e.preventDefault();
+//   //   const formErrors = validateForm();
+//   //   if (Object.keys(formErrors).length === 0) {
+//   //     sendEmail();
+//   //   } else {
+//   //     setTouched(
+//   //       Object.keys(formErrors).reduce(
+//   //         (acc, key) => ({ ...acc, [key]: true }),
+//   //         {}
+//   //       )
+//   //     );
+
+//   //     setErrors((prev) =>
+//   //       Object.keys(formErrors).reduce(
+//   //         (acc, key) => {
+//   //           acc[key as keyof typeof prev] = formErrors[
+//   //             key as keyof typeof formErrors
+//   //           ] as string;
+//   //           return acc;
+//   //         },
+//   //         { ...prev }
+//   //       )
+//   //     );
+//   //   }
+//   // };
+
+//   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+//     e.preventDefault();
+//     const formErrors = validateForm();
+//     if (Object.keys(formErrors).length === 0) {
+//       sendEmail();
+//     } else {
+//       setTouched(
+//         Object.keys(formErrors).reduce(
+//           (acc, key) => ({ ...acc, [key]: true }),
+//           {}
+//         )
+//       );
+
+//       setErrors((prev) =>
+//         Object.keys(formErrors).reduce(
+//           (acc, key) => {
+//             acc[key as keyof typeof prev] = formErrors[
+//               key as keyof typeof formErrors
+//             ] as string;
+//             return acc;
+//           },
+//           { ...prev }
+//         )
+//       );
+//     }
+//   };
+
+//   const sendEmail = async () => {
+//     try {
+//       await emailjs.send(
+//         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
+//         "HDS_ClientIntake",
+//         { ...formData, serviceInterest: formData.serviceInterest.join(", ") },
+//         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ""
+//       );
+//       setEmailStatus("Email sent successfully!");
+//       resetForm();
+//       clearFormStatus();
+//     } catch (error) {
+//       console.error("Failed to send email:", error);
+//       setEmailStatus("Failed to send email. Please try again.");
+//     }
+//   };
+
+//   const clearFormStatus = () => {
+//     const timeoutId = setTimeout(() => {
+//       setEmailStatus(null);
+//     }, 5000);
+//     return () => clearTimeout(timeoutId);
+//   };
+
+//   const resetForm = () => {
+//     setFormData({
+//       fullname: "",
+//       phone: "",
+//       email: "",
+//       serviceInterest: [],
+//       additionalRooms: "",
+//       hobbies: "",
+//       projectTimeframe: "",
+//       budget: "",
+//       decisionMakers: "",
+//       favouriteFood: "",
+//       favouriteDrink: "",
+//       favouriteFlowers: "",
+//       pastExperience: "",
+//       referral: "",
+//       spaceFeedback: "",
+//     });
+//     setTouched({});
+//   };
+
+"use client";
+
+import React, { useState, useEffect, useCallback } from "react";
+import emailjs from "emailjs-com";
+
 interface FormData {
   fullname: string;
   phone: string;
@@ -22,7 +222,6 @@ interface FormData {
 }
 
 const NewClientIntakeForm: React.FC = () => {
-  // Initialize form data with default values
   const [formData, setFormData] = useState<FormData>({
     fullname: "",
     phone: "",
@@ -41,15 +240,46 @@ const NewClientIntakeForm: React.FC = () => {
     spaceFeedback: "",
   });
 
-  const [errors, setErrors] = useState<Partial<FormData>>({});
+  const [errors, setErrors] = useState<
+    Record<keyof FormData, string | undefined>
+  >({
+    fullname: undefined,
+    phone: undefined,
+    email: undefined,
+    serviceInterest: undefined,
+    additionalRooms: undefined,
+    hobbies: undefined,
+    projectTimeframe: undefined,
+    budget: undefined,
+    decisionMakers: undefined,
+    favouriteFood: undefined,
+    favouriteDrink: undefined,
+    favouriteFlowers: undefined,
+    pastExperience: undefined,
+    referral: undefined,
+    spaceFeedback: undefined,
+  });
+  const [touched, setTouched] = useState<Record<keyof FormData, boolean>>({
+    fullname: false,
+    phone: false,
+    email: false,
+    serviceInterest: false,
+    additionalRooms: false,
+    hobbies: false,
+    projectTimeframe: false,
+    budget: false,
+    decisionMakers: false,
+    favouriteFood: false,
+    favouriteDrink: false,
+    favouriteFlowers: false,
+    pastExperience: false,
+    referral: false,
+    spaceFeedback: false,
+  });
+
   const [isDisabled, setIsDisabled] = useState(true);
+  const [emailStatus, setEmailStatus] = useState<string | null>(null);
 
-  //Tracks whether the user has interacted with the field
-  // const [touched, setTouched] = useState<
-  //   Partial<Record<keyof FormData, boolean>>
-  // >({});
-
-  // Handle form input changes
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -57,78 +287,211 @@ const NewClientIntakeForm: React.FC = () => {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    setErrors((prev) => ({ ...prev, [name]: "" })); // Clear errors on input
+    setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
-  // Handle checkbox changes for service interest
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, checked } = e.target;
-
-    setFormData((prevData) => ({
-      ...prevData,
+    setFormData((prev) => ({
+      ...prev,
       serviceInterest: checked
-        ? [...prevData.serviceInterest, value]
-        : prevData.serviceInterest.filter((item) => item !== value),
+        ? [...prev.serviceInterest, value]
+        : prev.serviceInterest.filter((service) => service !== value),
     }));
   };
 
-  // Memoized function for form validation
-  //const validateForm = useCallback(() => {}, []);
+  const handleBlur = (
+    e: React.FocusEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name } = e.target;
+    setTouched((prev) => ({ ...prev, [name]: true }));
+  };
 
-  // useEffect to validate the form whenever formData changes
+  const validateForm = useCallback((): Partial<FormData> => {
+    const errors: Partial<FormData> = {};
+    if (!formData.fullname.trim()) errors.fullname = "Full name is required.";
+    if (!formData.phone.trim()) errors.phone = "Phone number is required.";
+    if (!formData.email.trim() || !/\S+@\S+\.\S+/.test(formData.email)) {
+      errors.email = "A valid email is required.";
+    }
+    return errors;
+  }, [formData]);
+
   useEffect(() => {
-    setIsDisabled(true);
-  }, []);
+    const formErrors = validateForm();
+    setErrors((prev) =>
+      Object.keys(formErrors).reduce(
+        (acc, key) => {
+          if (touched[key as keyof FormData]) {
+            acc[key as keyof FormData] =
+              typeof formErrors[key as keyof FormData] === "string"
+                ? (formErrors[key as keyof FormData] as string)
+                : undefined;
+          }
+          return acc;
+        },
+        { ...prev }
+      )
+    );
+    setIsDisabled(Object.keys(formErrors).length > 0);
+  }, [formData, validateForm, touched]);
 
-  // Handle form submission
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const formErrors = validateForm();
+    if (Object.keys(formErrors).length === 0) {
+      sendEmail();
+    } else {
+      setTouched(
+        Object.keys(formErrors).reduce(
+          (acc, key) => ({ ...acc, [key]: true }),
+          {
+            fullname: false,
+            phone: false,
+            email: false,
+            serviceInterest: false,
+            additionalRooms: false,
+            hobbies: false,
+            projectTimeframe: false,
+            budget: false,
+            decisionMakers: false,
+            favouriteFood: false,
+            favouriteDrink: false,
+            favouriteFlowers: false,
+            pastExperience: false,
+            referral: false,
+            spaceFeedback: false,
+          }
+        )
+      );
+
+      setErrors((prev) =>
+        Object.keys(formErrors).reduce(
+          (acc, key) => {
+            if (touched[key as keyof FormData]) {
+              acc[key as keyof FormData] = formErrors[
+                key as keyof FormData
+              ] as string; // Assert as string
+            }
+            return acc;
+          },
+          { ...prev }
+        )
+      );
+    }
+  };
+
+  const sendEmail = async () => {
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
+        "HDS_ClientIntake",
+        { ...formData, serviceInterest: formData.serviceInterest.join(", ") },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ""
+      );
+      setEmailStatus("Email sent successfully!");
+      resetForm();
+      clearFormStatus();
+    } catch (error) {
+      console.error("Failed to send email:", error);
+      setEmailStatus("Failed to send email. Please try again.");
+    }
+  };
+
+  const clearFormStatus = () => {
+    const timeoutId = setTimeout(() => {
+      setEmailStatus(null);
+    }, 5000);
+    return () => clearTimeout(timeoutId);
+  };
+
+  const resetForm = () => {
+    setFormData({
+      fullname: "",
+      phone: "",
+      email: "",
+      serviceInterest: [],
+      additionalRooms: "",
+      hobbies: "",
+      projectTimeframe: "",
+      budget: "",
+      decisionMakers: "",
+      favouriteFood: "",
+      favouriteDrink: "",
+      favouriteFlowers: "",
+      pastExperience: "",
+      referral: "",
+      spaceFeedback: "",
+    });
+    setTouched({
+      fullname: false,
+      phone: false,
+      email: false,
+      serviceInterest: false,
+      additionalRooms: false,
+      hobbies: false,
+      projectTimeframe: false,
+      budget: false,
+      decisionMakers: false,
+      favouriteFood: false,
+      favouriteDrink: false,
+      favouriteFlowers: false,
+      pastExperience: false,
+      referral: false,
+      spaceFeedback: false,
+    });
   };
 
   return (
-    <section className="relative z-10 mt-[8vh] overflow-hidden bg-gray-100 py-16 md:py-20 lg:py-28 ">
+    <section className="relative z-10 mt-[8vh] overflow-hidden bg-gray-100 py-16 md:py-20 lg:py-28">
       <div className="flex flex-col gap-4 px-10 lg:flex-row">
-        {/* Form section */}
-        <div className="w-full flex flex-col mt-8  justify-center lg:w-1/2 lg:mx-auto">
+        <div className="w-full flex flex-col mt-8 justify-center lg:w-1/2 lg:mx-auto">
           <div className="mx-auto w-full max-w-[540px]">
             <h3 className="mb-8 text-black font-black text-3xl">
               Design Intake Questionnaire
             </h3>
+
             <form onSubmit={handleFormSubmit}>
-              {/* fullname */}
+              {/* Full Name */}
               <div className="mb-6">
                 <label htmlFor="fullname" className="block font-bold mb-2">
                   Full Name
                 </label>
                 <input
-                  type="fullname"
+                  type="text"
                   id="fullname"
                   name="fullname"
                   value={formData.fullname}
                   onChange={handleInputChange}
                   className="border rounded-md p-2 w-full"
+                  onBlur={handleBlur}
                   required
                 />
                 {errors.fullname && (
                   <p className="text-red-500">{errors.fullname}</p>
                 )}
               </div>
-              {/* phone */}
+
+              {/* Phone */}
               <div className="mb-6">
                 <label htmlFor="phone" className="block font-bold mb-2">
-                  phone
+                  Phone
                 </label>
                 <input
-                  type="phone"
+                  type="text"
                   id="phone"
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
                   className="border rounded-md p-2 w-full"
+                  onBlur={handleBlur}
                   required
                 />
                 {errors.phone && <p className="text-red-500">{errors.phone}</p>}
               </div>
+
               {/* Email */}
               <div className="mb-6">
                 <label htmlFor="email" className="block font-bold mb-2">
@@ -141,6 +504,7 @@ const NewClientIntakeForm: React.FC = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   className="border rounded-md p-2 w-full"
+                  onBlur={handleBlur}
                   required
                 />
                 {errors.email && <p className="text-red-500">{errors.email}</p>}
@@ -151,32 +515,28 @@ const NewClientIntakeForm: React.FC = () => {
                 <label className="block font-bold mb-2">
                   Which Service are you interested in? Check all that apply:
                 </label>
-                <div className="flex flex-col">
-                  {[
-                    "Full Service Interior Design",
-                    "Space Planning / Furniture Selection",
-                    "Kitchen / Bath Design",
-                    "Basement Design / Legalize",
-                    "Custom Millwork Design",
-                    "Commercial Design",
-                    "Residential Design",
-                    "Project Management",
-                  ].map((service) => (
-                    <label key={service}>
-                      <input
-                        type="checkbox"
-                        name="serviceInterest"
-                        value={service}
-                        checked={formData.serviceInterest.includes(service)}
-                        onChange={handleCheckboxChange}
-                      />{" "}
-                      {service}
-                    </label>
-                  ))}
-                </div>
-                {errors.serviceInterest && (
-                  <p className="text-red-500">{errors.serviceInterest}</p>
-                )}
+                {[
+                  "Full Service Interior Design",
+                  "Space Planning / Furniture Selection",
+                  "Kitchen / Bath Design",
+                  "Basement Design / Legalize",
+                  "Custom Millwork Design",
+                  "Commercial Design",
+                  "Residential Design",
+                  "Project Management",
+                ].map((service) => (
+                  <label key={service} className="block">
+                    <input
+                      type="checkbox"
+                      name="serviceInterest"
+                      value={service}
+                      checked={formData.serviceInterest.includes(service)}
+                      onChange={handleCheckboxChange}
+                      className="mr-2"
+                    />
+                    {service}
+                  </label>
+                ))}
               </div>
 
               {/* Additional Rooms */}
@@ -193,10 +553,8 @@ const NewClientIntakeForm: React.FC = () => {
                   value={formData.additionalRooms}
                   onChange={handleInputChange}
                   className="border rounded-md p-2 w-full"
+                  onBlur={handleBlur}
                 />
-                {errors.additionalRooms && (
-                  <p className="text-red-500">{errors.additionalRooms}</p>
-                )}
               </div>
 
               {/* Hobbies */}
@@ -211,10 +569,8 @@ const NewClientIntakeForm: React.FC = () => {
                   value={formData.hobbies}
                   onChange={handleInputChange}
                   className="border rounded-md p-2 w-full"
+                  onBlur={handleBlur}
                 />
-                {errors.hobbies && (
-                  <p className="text-red-500">{errors.hobbies}</p>
-                )}
               </div>
 
               {/* Project Timeframe */}
@@ -232,19 +588,17 @@ const NewClientIntakeForm: React.FC = () => {
                   value={formData.projectTimeframe}
                   onChange={handleInputChange}
                   className="border rounded-md p-2 w-full"
-                  placeholder="Ready to start / 1-3 months / 3-6 months / 6-12 months / 1 year +"
+                  onBlur={handleBlur}
                 />
-                {errors.projectTimeframe && (
-                  <p className="text-red-500">{errors.projectTimeframe}</p>
-                )}
               </div>
 
               {/* Budget */}
               <div className="mb-6">
-                <label className="block font-bold mb-2">
+                <label htmlFor="budget" className="block font-bold mb-2">
                   What is your Budget?
                 </label>
                 <select
+                  id="budget"
                   name="budget"
                   value={formData.budget}
                   onChange={handleInputChange}
@@ -259,9 +613,6 @@ const NewClientIntakeForm: React.FC = () => {
                   <option value="70000-100000">70000 - 100000 CAD$</option>
                   <option value="100000-UP">100000 CAD$ - UP</option>
                 </select>
-                {errors.budget && (
-                  <p className="text-red-500">{errors.budget}</p>
-                )}
               </div>
 
               {/* Decision Makers */}
@@ -278,13 +629,11 @@ const NewClientIntakeForm: React.FC = () => {
                   value={formData.decisionMakers}
                   onChange={handleInputChange}
                   className="border rounded-md p-2 w-full"
+                  onBlur={handleBlur}
                 />
-                {errors.decisionMakers && (
-                  <p className="text-red-500">{errors.decisionMakers}</p>
-                )}
               </div>
 
-              {/* Favorite Food */}
+              {/* Favourite Food */}
               <div className="mb-6">
                 <label htmlFor="favouriteFood" className="block font-bold mb-2">
                   What is your favourite food?
@@ -296,13 +645,11 @@ const NewClientIntakeForm: React.FC = () => {
                   value={formData.favouriteFood}
                   onChange={handleInputChange}
                   className="border rounded-md p-2 w-full"
+                  onBlur={handleBlur}
                 />
-                {errors.favouriteFood && (
-                  <p className="text-red-500">{errors.favouriteFood}</p>
-                )}
               </div>
 
-              {/* Favorite Drink */}
+              {/* Favourite Drink */}
               <div className="mb-6">
                 <label
                   htmlFor="favouriteDrink"
@@ -317,13 +664,11 @@ const NewClientIntakeForm: React.FC = () => {
                   value={formData.favouriteDrink}
                   onChange={handleInputChange}
                   className="border rounded-md p-2 w-full"
+                  onBlur={handleBlur}
                 />
-                {errors.favouriteDrink && (
-                  <p className="text-red-500">{errors.favouriteDrink}</p>
-                )}
               </div>
 
-              {/* Favorite Flowers */}
+              {/* Favourite Flowers */}
               <div className="mb-6">
                 <label
                   htmlFor="favouriteFlowers"
@@ -338,10 +683,8 @@ const NewClientIntakeForm: React.FC = () => {
                   value={formData.favouriteFlowers}
                   onChange={handleInputChange}
                   className="border rounded-md p-2 w-full"
+                  onBlur={handleBlur}
                 />
-                {errors.favouriteFlowers && (
-                  <p className="text-red-500">{errors.favouriteFlowers}</p>
-                )}
               </div>
 
               {/* Past Experience */}
@@ -359,10 +702,8 @@ const NewClientIntakeForm: React.FC = () => {
                   value={formData.pastExperience}
                   onChange={handleInputChange}
                   className="border rounded-md p-2 w-full"
+                  onBlur={handleBlur}
                 />
-                {errors.pastExperience && (
-                  <p className="text-red-500">{errors.pastExperience}</p>
-                )}
               </div>
 
               {/* Referral */}
@@ -377,10 +718,8 @@ const NewClientIntakeForm: React.FC = () => {
                   value={formData.referral}
                   onChange={handleInputChange}
                   className="border rounded-md p-2 w-full"
+                  onBlur={handleBlur}
                 />
-                {errors.referral && (
-                  <p className="text-red-500">{errors.referral}</p>
-                )}
               </div>
 
               {/* Space Feedback */}
@@ -395,21 +734,31 @@ const NewClientIntakeForm: React.FC = () => {
                   value={formData.spaceFeedback}
                   onChange={handleInputChange}
                   className="border rounded-md p-2 w-full"
+                  onBlur={handleBlur}
                 />
-                {errors.spaceFeedback && (
-                  <p className="text-red-500">{errors.spaceFeedback}</p>
-                )}
               </div>
 
-              {/* Submit Button */}
-              <div>
+              <div className="flex flex-row gap-6 items-center justify-start">
                 <button
                   type="submit"
-                  className="border border-white bg-black text-white rounded-lg py-4 px-12 hover:bg-white hover:text-black hover:ring-4 hover:ring-offset-slate-200"
+                  className={`border bg-black text-white py-3 px-6 rounded ${
+                    isDisabled ? "opacity-50 cursor-not-allowed" : ""
+                  }`}
                   disabled={isDisabled}
                 >
                   Submit
                 </button>
+                {emailStatus && (
+                  <span
+                    className={`py-3 px-6 ${
+                      emailStatus.includes("successfully")
+                        ? "text-emerald-400"
+                        : "text-red-500"
+                    }`}
+                  >
+                    {emailStatus}
+                  </span>
+                )}
               </div>
             </form>
           </div>
