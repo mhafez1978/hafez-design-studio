@@ -37,59 +37,45 @@ const FeaturedServices = ({
           </div>
         </div>
       </div>
-      <div className="w-full flex grid grid-cols-4 px-6">
+      <div className="w-full flex grid grid-cols-3 px-6">
         <ServiceCard
-          title="Full-Service Interior Design"
-          details="From concept to completion, we handle every detail of your residential project. This includes space planning, material selection, furniture, lighting, and décor, ensuring your home is all unified, reflects your style, and meets your needs. seamlessly."
+          title="Office Design"
+          details="We create functional and inspiring office spaces that foster productivity and align with your company's brand and culture. From open-plan layouts to private workspaces, we focus on design solutions that enhance employee well-being and workflow."
           // btnLink="/#"
           // btnText="Learn More"
           icon={<MdHomeWork color="white" size={35} />}
         />
         <ServiceCard
-          title="Kitchen Renovations"
-          details="We craft functional and stylish kitchens tailored to your lifestyle. From layout planning to selecting finishes and cabinetry, our designs ensure your kitchen becomes the heart of your home, blending practicality with beauty."
+          title="Restaurant Design"
+          details="We design restaurants that offer both an exceptional dining experience and a strong brand identity. Our focus is on creating inviting spaces with thoughtful layouts, ambiance, and design details that enhance customer satisfaction and operational efficiency."
           // btnLink="/#"
           // btnText="Learn More"
           icon={<MdKitchen color="white" size={35} />}
         />
         <ServiceCard
-          title="Legal Basement"
-          details="We specialize in designing legal basements that maximize functionality and meet building code requirements. Our designs combine practicality with a polished finish, whether for additional living space, rental income, or storage."
+          title="Concept & Brand Image"
+          details="We develop unique design concepts that reflect your brand’s identity and values. From the visual aesthetic to the atmosphere, we ensure every detail aligns with your brand's story, creating a cohesive and memorable experience for your customers."
           // btnLink="/#"
           // btnText="Learn More"
           icon={<BsBuildingDown color="white" size={35} />}
         />
         <ServiceCard
-          title="Millwork & Fit in"
-          details="Our custom millwork designs add unique character and functionality to your space. From built-ins to cabinetry, we ensure seamless integration with your interior, enhancing both style and utility."
+          title="Feasibility Study"
+          details="We conduct comprehensive feasibility studies to assess the viability of your project. This includes evaluating site conditions, budget constraints, and design potential to ensure your vision is practical and financially achievable."
           // btnLink="/#"
           // btnText="Learn More"
           icon={<FiTable color="white" size={35} />}
         />
         <ServiceCard
-          title="Bath Renovations"
-          details="We create serene and functional bathroom spaces that cater to your needs. From efficient layouts to selecting luxurious fixtures and finishes, our designs transform your bathroom into a relaxing retreat."
+          title="Millwork & Fit in"
+          details="We provide custom millwork and fit-in solutions that enhance your commercial space's functionality and style. From cabinetry to bespoke fixtures, our designs integrate seamlessly with your overall concept, adding both practicality and aesthetic value."
           // btnLink="/#"
           // btnText="Learn More"
           icon={<TbBathFilled color="white" size={35} />}
         />
         <ServiceCard
-          title="Procurement"
-          details="We handle the sourcing and purchasing of furniture, fixtures, and materials, ensuring the best quality and value. Our streamlined process saves you time and delivers everything needed to bring your design to life."
-          // btnLink="/#"
-          // btnText="Learn More"
-          icon={<FaTruckFront color="white" size={35} />}
-        />
-        <ServiceCard
-          title="Layout & Furniture Selection"
-          details="We design optimized layouts and curate furniture pieces that perfectly suit your space and style. Every element is selected to enhance comfort, functionality, and aesthetic appeal."
-          // btnLink="/#"
-          // btnText="Learn More"
-          icon={<FaTruckFront color="white" size={35} />}
-        />
-        <ServiceCard
-          title="Project Management"
-          details="We oversee every aspect of your project, coordinating timelines, contractors, and deliveries to ensure a smooth process. Our hands-on approach guarantees your vision is executed flawlessly and on schedule."
+          title=" Project Management"
+          details="We manage every aspect of your commercial project, ensuring that it stays on track, on budget, and on time. Our team coordinates with contractors, vendors, and suppliers to deliver a seamless experience and efficiently bring your vision to life."
           // btnLink="/#"
           // btnText="Learn More"
           icon={<FaTruckFront color="white" size={35} />}

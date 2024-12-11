@@ -19,6 +19,11 @@ export const AppPages = [
         description: "Residentials Services",
       },
       {
+        pageTitle: "Commercial ",
+        href: "/commercial/services",
+        description: "Commercial Services",
+      },
+      {
         pageTitle: "Designers",
         href: "/designers/services",
         description: "Designers Services",

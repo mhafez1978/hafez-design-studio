@@ -1,6 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import FeaturedServices2 from "@/components/ui/FeaturedServices2";
+import AccordionProcess2 from "@/components/ui/AccordionProcess2";
 
 export const metadata: Metadata = {
   title: "Designer Services",
@@ -12,6 +13,9 @@ const ResidentialServices: React.FC = () => {
     <>
       {/*  */}
       <FeaturedServices2 />
+      <div className="container  mx-auto">
+        <AccordionProcess2 />
+      </div>
     </>
   );
 };

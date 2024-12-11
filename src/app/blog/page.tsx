@@ -2,20 +2,13 @@ import BlogRoll from "@/components/ui/BlogRoll";
 
 const BlogPage = async () => {
   return (
-    <div className="py-[225px] ">
-      <div className="container mx-auto text-left lg:mb-20">
-        <span className="mb-2 block text-2xl font-semibold text-gray-600 px-4 italic">
-          Our Blog
-        </span>
-        <h2 className="mb-4 text-5xl font-bold text-dark px-4">
+    <div className="pb-[150px] ">
+      <div className="container mx-auto text-left mb-6">
+        <h2 className="text-5xl font-bold text-dark px-4">
           Our Latest News &amp; Articles
         </h2>
-        {/* <p className="text-base text-body-color dark:text-dark-6">
-          There are many variations of passages of Lorem Ipsum available but the
-          majority have suffered alteration in some form.
-        </p> */}
       </div>
-      <div className="container mx-auto flex flex-wrap -mx-4">
+      <div className="container mx-auto flex flex-wrap ">
         <BlogRoll />
       </div>
     </div>

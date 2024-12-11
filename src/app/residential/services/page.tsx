@@ -11,7 +11,25 @@ export const metadata: Metadata = {
 const ResidentialServices: React.FC = () => {
   return (
     <>
-      <FeaturedServices />
+      <FeaturedServices
+        serviceTitle=""
+        serviceName="Residential Design Services"
+        serviceDescription="No project is too small when it comes to creating your perfect home. Whether you're envisioning a full-service interior design transformation, upgrading your kitchen or bath, or adding a custom walk-in closet, Hafez Design Studio is here to help. We specialize in tailoring every detail to your unique style and lifestyle needs, ensuring your home supports you in living your best life. Let us create a space where you can focus on success, productivity, or simply enjoying the comforts of a beautifully designed home."
+        serviceDescription2="Our clients are planning a kitchen or bathroom renovation,
+              legalizing a basement, designing a commercial space, or upgrading
+              their business environment, Hafez Design Studio is here to guide
+              them. We understand that both residential and small commercial
+              projects are significant investments, and we're dedicated to
+              making the process as smooth and enjoyable as possible. As a
+              boutique design firm, we help you explore all your options,
+              visualize the space before construction begins, and manage every
+              detail—from selecting finishes and materials to coordinating with
+              contractors. Our goal is to save you time, eliminate stress, and
+              ensure your project is completed on schedule, within budget, and
+              with excellent craftsmanship. Whether it's your home or your
+              business, let us bring your vision to life with a space
+              that's functional, beautiful, and uniquely yours."
+      />
       <div className="container mx-aut0">
         <h2 className="text-4xl font-black italic mb-6">Our Design Process.</h2>
         <p className="text-gray-800 pr-[12vw]">

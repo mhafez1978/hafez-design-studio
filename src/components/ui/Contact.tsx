@@ -429,12 +429,12 @@ const Contact: React.FC = () => {
   );
 
   return (
-    <section className="relative z-10 mt-[220px] overflow-hidden bg-white py-16 md:py-20 lg:py-28 dark:bg-dark">
+    <section className="relative z-10 overflow-hidden bg-white pb-[150px]">
       <div className="flex flex-col gap-4 px-10 lg:flex-row">
         <div className="w-full flex flex-col mt-8 justify-start lg:w-1/2">
           <div className="mx-auto w-full max-w-[540px]">
-            <h3 className="mb-8 text-black font-black text-3xl">
-              We Love To Hear From You
+            <h3 className="mb-8 text-gray-600 font-semibol text-xl">
+              If you have any inquiries contact us directly
             </h3>
             {emailStatus && (
               <div
@@ -583,8 +583,12 @@ const Contact: React.FC = () => {
             </form>
           </div>
         </div>
-        <div className="relative w-full border-4 border-slate-900 bg-[url('https://www.decorilla.com/online-decorating/wp-content/uploads/2022/03/Modern-Office-Interior-with-Open-Floor-Plan-scaled.jpeg')] bg-cover bg-center bg-no-repeat bg-fixed lg:w-1/2 lg:h-[71vh]">
-          <img src="/ehab.png" alt="ehab" className="relative z-30" />
+        <div className="w-full flex justify-center items-center lg:w-1/2 lg:h-[71vh]">
+          <img
+            src="/square-logo.png"
+            alt="ehab"
+            className="w-[300px] h-[300px] z-30 object-contain"
+          />
         </div>
       </div>
     </section>
