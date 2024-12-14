@@ -23,15 +23,13 @@ const page = () => {
         <div className="container mx-auto">
           <div className="w-full flex flex-row mb-8">
             <div className="w-1/2 flex flex-col justify-center">
-              <h1 className="text-3xl font-black">Corporate &amp; Design</h1>
-              <h5 className="text-lg font-base mb-4">
-                Sudbury, Ontario Canada
-              </h5>
+              <h1 className="text-3xl mb-4 font-black">Corporate Design</h1>
+
               <p className="mb-2 pr-6 text-justify">
                 Corporate Office Design Honored to have won the Staples Business
                 Advantage Scholarship for our Corporate Design. In this project,
                 we used the main three principles of design maintained in Zaha
-                Hadid’s work throughout her career. “Movement” to bring in
+                Hadid&apos;s work throughout her career. “Movement” to bring in
                 dynamics that contrast the workfrom- home environment, “Variety”
                 in shape and form representing the diversity in our community,
                 and “Unity” to connect and unify everything together creating an
