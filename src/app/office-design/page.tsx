@@ -22,30 +22,20 @@ const page = () => {
         </div>
         <div className="container mx-auto">
           <div className="w-full flex flex-row mb-8">
-            <div className="w-1/2">
+            <div className="w-1/2 flex flex-col justify-center">
               <h1 className="text-3xl font-black">Corporate &amp; Design</h1>
               <h5 className="text-lg font-base mb-4">
                 Sudbury, Ontario Canada
               </h5>
-              <p className="mb-2 pr-6">
-                This stunning kitchen transformation located in Sudbury ON. The
-                outdated 217 sq ft. kitchen with limited storage and counter
-                space has been completely revamped to a transitional style
-                kitchen that meets our client&apos;s needs and preferences. The
-                redesign features white upper cabinets paired with light green
-                base cabinets, complemented by gold handles adding a touch of
-                elegance.
-              </p>
-              <p className="mb-2 pr-6">
-                The central island, with its white marble countertop and green
-                stools, serves as the perfect gathering spot for entertaining
-                family and friends. The white herringbone backsplash adds a
-                modern flair, while the black range hood and built-in appliances
-                offer style and functionality. The overall design creates a
-                contemporary, inviting space that seamlessly blends aesthetics
-                with practicality. This project demonstrates our commitment to
-                delivering exceptional kitchen designs that enhance the living
-                experience.
+              <p className="mb-2 pr-6 text-justify">
+                Corporate Office Design Honored to have won the Staples Business
+                Advantage Scholarship for our Corporate Design. In this project,
+                we used the main three principles of design maintained in Zaha
+                Hadid’s work throughout her career. “Movement” to bring in
+                dynamics that contrast the workfrom- home environment, “Variety”
+                in shape and form representing the diversity in our community,
+                and “Unity” to connect and unify everything together creating an
+                inclusive work environment.
               </p>
             </div>
             <div className="w-1/2">

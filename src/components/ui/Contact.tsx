@@ -433,9 +433,6 @@ const Contact: React.FC = () => {
       <div className="flex flex-col gap-4 px-10 lg:flex-row">
         <div className="w-full flex flex-col mt-8 justify-start lg:w-1/2">
           <div className="mx-auto w-full max-w-[540px]">
-            <h3 className="mb-8 text-gray-600 font-semibol text-xl">
-              If you have any inquiries contact us directly
-            </h3>
             {emailStatus && (
               <div
                 className={`mb-4 ${
@@ -447,6 +444,9 @@ const Contact: React.FC = () => {
                 {emailStatus}
               </div>
             )}
+            <h2 className="text-4xl font-black text-black mb-6">
+              Send us a message
+            </h2>
             <form onSubmit={handleFormSubmission}>
               {/* Form fields */}
               <div className="-mx-4 flex flex-wrap">
@@ -583,11 +583,32 @@ const Contact: React.FC = () => {
             </form>
           </div>
         </div>
-        <div className="w-full flex justify-center items-center lg:w-1/2 lg:h-[71vh]">
+        <div className="w-full flex flex-col justify-start pt-[2%] pl-[10%] items-start lg:w-1/2 lg:h-[71vh]">
+          <h2 className="text-4xl font-semibold text-black mb-4">
+            Have a Project in Mind ?
+          </h2>
+          <h3 className="mb-4 text-gray-600 font-semibol text-xl">
+            If you have any inquiries contact us directly
+          </h3>
+          <p>
+            <a
+              className="font-semibold text-lg text-black"
+              href="mailtp:info@hafezdesignstudio.com"
+            >
+              info@hafezdesignstudio.com
+            </a>
+            <br />
+            <a
+              className="font-semibold text-lg text-black"
+              href="tel:+17059882971"
+            >
+              +1 705 988 2971
+            </a>
+          </p>
           <img
-            src="/square-logo.png"
+            src="/450-logo.png"
             alt="ehab"
-            className="w-[300px] h-[300px] z-30 object-contain"
+            className="w-[360px] h-[170px] z-30 object-contain"
           />
         </div>
       </div>

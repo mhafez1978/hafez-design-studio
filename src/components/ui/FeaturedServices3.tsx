@@ -3,12 +3,14 @@ import React, { ReactNode } from "react";
 //import { IoBusiness } from "react-icons/io5";
 import { MdHomeWork } from "react-icons/md";
 import { MdKitchen } from "react-icons/md";
-import { BsBuildingDown } from "react-icons/bs";
+//import { BsBuildingDown } from "react-icons/bs";
 import { FiTable } from "react-icons/fi";
 //import { RiFolderReceivedFill } from "react-icons/ri";
 //import { MdOutlineManageHistory } from "react-icons/md";
-import { FaTruckFront } from "react-icons/fa6";
+//import { FaTruckFront } from "react-icons/fa6";
 import { TbBathFilled } from "react-icons/tb";
+import { FaProjectDiagram } from "react-icons/fa";
+import { TbBrandAirtable } from "react-icons/tb";
 
 const FeaturedServices = ({
   serviceTitle,
@@ -57,7 +59,7 @@ const FeaturedServices = ({
           details="We develop unique design concepts that reflect your brand’s identity and values. From the visual aesthetic to the atmosphere, we ensure every detail aligns with your brand's story, creating a cohesive and memorable experience for your customers."
           // btnLink="/#"
           // btnText="Learn More"
-          icon={<BsBuildingDown color="white" size={35} />}
+          icon={<TbBrandAirtable color="white" size={35} />}
         />
         <ServiceCard
           title="Feasibility Study"
@@ -78,7 +80,7 @@ const FeaturedServices = ({
           details="We manage every aspect of your commercial project, ensuring that it stays on track, on budget, and on time. Our team coordinates with contractors, vendors, and suppliers to deliver a seamless experience and efficiently bring your vision to life."
           // btnLink="/#"
           // btnText="Learn More"
-          icon={<FaTruckFront color="white" size={35} />}
+          icon={<FaProjectDiagram color="white" size={35} />}
         />
       </div>
     </div>

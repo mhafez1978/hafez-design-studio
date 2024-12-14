@@ -9,6 +9,8 @@ import { FiTable } from "react-icons/fi";
 //import { MdOutlineManageHistory } from "react-icons/md";
 import { FaTruckFront } from "react-icons/fa6";
 import { TbBathFilled } from "react-icons/tb";
+import { VscLayout } from "react-icons/vsc";
+import { FaProjectDiagram } from "react-icons/fa";
 
 const FeaturedServices = ({
   serviceTitle,
@@ -85,14 +87,14 @@ const FeaturedServices = ({
           details="We design optimized layouts and curate furniture pieces that perfectly suit your space and style. Every element is selected to enhance comfort, functionality, and aesthetic appeal."
           // btnLink="/#"
           // btnText="Learn More"
-          icon={<FaTruckFront color="white" size={35} />}
+          icon={<VscLayout color="white" size={35} />}
         />
         <ServiceCard
           title="Project Management"
           details="We oversee every aspect of your project, coordinating timelines, contractors, and deliveries to ensure a smooth process. Our hands-on approach guarantees your vision is executed flawlessly and on schedule."
           // btnLink="/#"
           // btnText="Learn More"
-          icon={<FaTruckFront color="white" size={35} />}
+          icon={<FaProjectDiagram color="white" size={35} />}
         />
       </div>
     </div>

@@ -33,7 +33,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased smooth-scroll`}
       >
-        <Header />
+        <Header logo="/450-logo.png" />
         <Theme>
           <div className="mt-[20vh] lg:mt-[190px]">{children}</div>
         </Theme>

@@ -97,12 +97,12 @@ const Header: React.FC<HeaderProps> = ({ logo }) => {
             <Link href="/">
               {logo ? (
                 <Image
-                  width={360}
+                  width={450}
                   height={100}
                   src={logo}
                   alt="logo"
                   className={`transition-all duration-500 ease-in-out ${
-                    isShrunk ? "h-8 w-24" : "h-16 w-36"
+                    isShrunk ? "h-8 w-24" : "h-16 w-[340px]"
                   }`}
                 />
               ) : (

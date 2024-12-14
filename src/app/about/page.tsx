@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const AboutPage: React.FC = () => {
   return (
     <>
-      <div className="w-screen pt-[200px]">
+      <div className="w-screen pt-[200px] pb-[220px]">
         <div className="container mx-auto flex flex-col gap-2 lg:flex-row-reverse lg:gap-0">
           <div className="w-full flex flex-col gap-y-6 lg:w-1/2">
             <div className="w-full h-full pb-4">
