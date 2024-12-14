@@ -5,6 +5,7 @@ import { MdSpaceDashboard } from "react-icons/md";
 import { TbSection } from "react-icons/tb";
 import { SiSketchup } from "react-icons/si";
 import { SiTwinmotion } from "react-icons/si";
+import { IoIosContract } from "react-icons/io";
 
 const FeaturedServices = () => {
   return (
@@ -69,7 +70,7 @@ const FeaturedServices = () => {
         <ServiceCard
           title="Subcontracting"
           details="When you need an extra hand, second opinion I am available to assist with your own project."
-          icon={<SiTwinmotion color="white" size={35} />}
+          icon={<IoIosContract color="white" size={35} />}
         />
       </div>
     </div>
