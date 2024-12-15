@@ -347,7 +347,7 @@ const Post = () => {
   const sanitizedContent = post.content.rendered.trim();
 
   return (
-    <section className="bg-white py-20 dark:bg-dark lg:py-[225px]">
+    <section className="bg-white py-20 dark:bg-dark lg:pt-[180px] lg:pb-[200px]">
       <div className="container mx-auto">
         <div className="w-full px-4">
           <h1 className="mb-6 text-[26px] font-bold">{post.title.rendered}</h1>
