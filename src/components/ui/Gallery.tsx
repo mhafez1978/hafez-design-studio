@@ -74,7 +74,7 @@ export default function Gallery() {
       <div className="container">
         <div className="w-full">
           <h2 className="text-4xl font-semibold mb-8 italic">
-            Ressidential Projects
+            Residential Projects
           </h2>
           <div className="break-inside-avoid gap-4 md:columns-2 lg:columns-3">
             {residentialData.map((gallery, i) => (
