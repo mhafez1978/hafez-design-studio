@@ -11,9 +11,8 @@ export const metadata: Metadata = {
 const ResidentialServices: React.FC = () => {
   return (
     <>
-      {/*  */}
       <FeaturedServices2 />
-      <div className="container  mx-auto">
+      <div className="container mx-auto">
         <AccordionProcess2 />
       </div>
     </>

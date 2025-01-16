@@ -85,16 +85,14 @@ const AccordionProcess2 = () => {
   return (
     <section className="w-full bg-white pb-10 pt-20 dark:bg-dark lg:pb-20 lg:pt-[50px]">
       <div>
-        <div className="flex flex-wrap justify-center">
-          <div className="w-full">
-            {accordionData.phases.map((phase, index) => (
-              <AccordionItem
-                key={index}
-                header={phase.title}
-                content={phase.details}
-              />
-            ))}
-          </div>
+        <div className="w-full">
+          {accordionData.phases.map((phase, index) => (
+            <AccordionItem
+              key={index}
+              header={phase.title}
+              content={phase.details}
+            />
+          ))}
         </div>
       </div>
     </section>
@@ -114,7 +112,7 @@ const AccordionItem = ({ header, content }: AccordionItemProps) => {
   const handleToggle = () => setActive(!active);
 
   return (
-    <div className="mb-10 rounded-lg bg-white px-7 py-6 shadow-[0px_4px_18px_0px_rgba(0,0,0,0.07)] dark:bg-dark-2 md:px-10 md:py-8">
+    <div className="w-full mb-10 rounded-lg bg-white px-7 py-6 shadow-[0px_4px_18px_0px_rgba(0,0,0,0.07)] dark:bg-dark-2 md:px-10 md:py-8">
       <button
         className="faq-btn flex w-full items-center justify-between text-left"
         onClick={handleToggle}

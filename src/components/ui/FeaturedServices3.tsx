@@ -39,7 +39,7 @@ const FeaturedServices = ({
           </div>
         </div>
       </div>
-      <div className="w-full flex grid grid-cols-3 px-6">
+      <div className="w-full flex flex-wrap px-6">
         <ServiceCard
           title="Office Design"
           details="We create functional and inspiring office spaces that foster productivity and align with your company's brand and culture. From open-plan layouts to private workspaces, we focus on design solutions that enhance employee well-being and workflow."
@@ -97,7 +97,7 @@ interface ServiceCardProps {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, details }) => {
   return (
-    <div className="w-full px-4">
+    <div className="w-full px-4 lg:w-1/3">
       <div className="group mb-12">
         <div className="relative z-10 mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-[14px] bg-black xl:mb-[50px]">
           <span className="absolute left-0 top-0 z-[-1] flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-[14px] bg-primary bg-opacity-30 duration-300 group-hover:rotate-45"></span>

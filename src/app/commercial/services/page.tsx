@@ -11,13 +11,14 @@ export const metadata: Metadata = {
 const CommercialServices: React.FC = () => {
   return (
     <>
+      <div className="min-h-[60px]"></div>
       <FeaturedServices
         serviceTitle=""
         serviceName="Commercial Design Services"
         serviceDescription="Elevate your business with Hafez Design Studio's innovative and functional designs. Whether you need custom millwork to increase storage and eliminate clutter, a professional background for Zoom meetings or video shoots, or a complete office redesign, we’re here to help. From feasibility studies that inform your next investment to creating a workplace that fosters collaboration, focus, and a welcoming environment for your team, we ensure every detail aligns with your brand and vision. Let us transform your commercial space into a tool for productivity and success."
         serviceDescription2=""
       />
-      <div className="container max-w-[70%] mx-auto">
+      <div className="container mx-auto px-4">
         <h2 className="text-4xl font-black italic mb-6">Our Design Process.</h2>
         <p className="text-gray-800 pr-[12vw]">
           At Hafez Design Studio, we pride ourselves on maintaining a

@@ -429,187 +429,161 @@ const Contact: React.FC = () => {
   );
 
   return (
-    <section className="relative z-10 overflow-hidden bg-white pb-[150px]">
-      <div className="flex flex-col gap-4 px-10 lg:flex-row">
-        <div className="w-full flex flex-col mt-8 justify-start lg:w-1/2">
-          <div className="mx-auto w-full max-w-[540px]">
-            {emailStatus && (
-              <div
-                className={`mb-4 ${
-                  emailStatus.includes("successfully")
-                    ? "text-green-500"
-                    : "text-red-500"
-                }`}
-              >
-                {emailStatus}
-              </div>
-            )}
-            <h2 className="text-4xl font-black text-black mb-6">
-              Send us a message
-            </h2>
-            <form onSubmit={handleFormSubmission}>
-              {/* Form fields */}
-              <div className="-mx-4 flex flex-wrap">
-                {/* First Name */}
-                <div className="w-full px-4 sm:w-1/2">
-                  <div className="mb-6">
-                    <label className="mb-2.5 block text-base font-medium text-dark dark:text-white">
-                      First name
-                    </label>
-                    <input
-                      name="firstname"
-                      type="text"
-                      placeholder="First name"
-                      className="w-full rounded-lg border border-stroke bg-transparent px-5 py-3 text-dark placeholder-dark-5 outline-none duration-200 focus:border-primary dark:border-dark-3 dark:text-white dark:focus:border-primary"
-                      onChange={handleInputChange}
-                      onBlur={handleBlur}
-                      value={formData.firstname}
-                    />
-                    {touched.firstname && errors.firstname && (
-                      <span className="text-sm text-red-500">
-                        {errors.firstname}
-                      </span>
-                    )}
+    <section className="relative z-10 overflow-hidden bg-white lg:py-20">
+      <div className="container mx-auto ">
+        <div className="flex flex-col gap-4 px-10">
+          <div className="flex flex-col justify-center items-center py-20">
+            <div className="w-full">
+              {emailStatus && (
+                <div
+                  className={`mb-4 ${
+                    emailStatus.includes("successfully")
+                      ? "text-green-500"
+                      : "text-red-500"
+                  }`}
+                >
+                  {emailStatus}
+                </div>
+              )}
+              <h2 className="text-4xl font-black text-black mb-6">
+                Send us a message
+              </h2>
+              <form onSubmit={handleFormSubmission}>
+                {/* Form fields */}
+                <div className="-mx-4 flex flex-wrap">
+                  {/* First Name */}
+                  <div className="w-full px-4 sm:w-1/2">
+                    <div className="mb-6">
+                      <label className="mb-2.5 block text-base font-medium text-dark dark:text-white">
+                        First name
+                      </label>
+                      <input
+                        name="firstname"
+                        type="text"
+                        placeholder="First name"
+                        className="w-full rounded-lg border border-stroke bg-transparent px-5 py-3 text-dark placeholder-dark-5 outline-none duration-200 focus:border-primary dark:border-dark-3 dark:text-white dark:focus:border-primary"
+                        onChange={handleInputChange}
+                        onBlur={handleBlur}
+                        value={formData.firstname}
+                      />
+                      {touched.firstname && errors.firstname && (
+                        <span className="text-sm text-red-500">
+                          {errors.firstname}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Last Name */}
+                  <div className="w-full px-4 sm:w-1/2">
+                    <div className="mb-6">
+                      <label className="mb-2.5 block text-base font-medium text-dark dark:text-white">
+                        Last name
+                      </label>
+                      <input
+                        name="lastname"
+                        type="text"
+                        placeholder="Last name"
+                        className="w-full rounded-lg border border-stroke bg-transparent px-5 py-3 text-dark placeholder-dark-5 outline-none duration-200 focus:border-primary dark:border-dark-3 dark:text-white dark:focus:border-primary"
+                        onChange={handleInputChange}
+                        onBlur={handleBlur}
+                        value={formData.lastname}
+                      />
+                      {touched.lastname && errors.lastname && (
+                        <span className="text-sm text-red-500">
+                          {errors.lastname}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Email */}
+                  <div className="w-full px-4">
+                    <div className="mb-6">
+                      <label className="mb-2.5 block text-base font-medium text-dark dark:text-white">
+                        Email
+                      </label>
+                      <input
+                        name="email"
+                        type="email"
+                        placeholder="email@company.com"
+                        className="w-full rounded-lg border border-stroke bg-transparent px-5 py-3 text-dark placeholder-dark-5 outline-none duration-200 focus:border-primary dark:border-dark-3 dark:text-white dark:focus:border-primary"
+                        onChange={handleInputChange}
+                        onBlur={handleBlur}
+                        value={formData.email}
+                      />
+                      {touched.email && errors.email && (
+                        <span className="text-sm text-red-500">
+                          {errors.email}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Phone */}
+                  <div className="w-full px-4">
+                    <div className="mb-6">
+                      <label className="mb-2.5 block text-base font-medium text-dark dark:text-white">
+                        Phone number
+                      </label>
+                      <input
+                        name="phone"
+                        type="text"
+                        placeholder="+1 (555) 444-0000"
+                        className="w-full rounded-lg border border-stroke bg-transparent px-5 py-3 text-dark placeholder-dark-5 outline-none duration-200 focus:border-primary dark:border-dark-3 dark:text-white dark:focus:border-primary"
+                        onChange={handleInputChange}
+                        onBlur={handleBlur}
+                        value={formData.phone}
+                      />
+                      {touched.phone && errors.phone && (
+                        <span className="text-sm text-red-500">
+                          {errors.phone}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Message */}
+                  <div className="w-full px-4">
+                    <div className="mb-6">
+                      <label className="mb-2.5 block text-base font-medium text-dark dark:text-white">
+                        Message
+                      </label>
+                      <textarea
+                        name="message"
+                        rows={6}
+                        placeholder="Type your message"
+                        className="w-full rounded-lg border border-stroke bg-transparent p-5 text-dark placeholder-dark-5 outline-none duration-200 focus:border-primary dark:border-dark-3 dark:text-white dark:focus:border-primary"
+                        onChange={handleInputChange}
+                        onBlur={handleBlur}
+                        value={formData.message}
+                      ></textarea>
+                      {touched.message && errors.message && (
+                        <span className="text-sm text-red-500">
+                          {errors.message}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Submit Button */}
+                  <div className="w-full px-4">
+                    <button
+                      type="submit"
+                      className={`flex h-12 w-full items-center justify-center rounded-lg px-5 py-3 text-base font-medium text-white duration-200 ${
+                        isDisabled
+                          ? "bg-gray-400 cursor-not-allowed"
+                          : "bg-black hover:bg-white hover:text-black hover:border hover:border-black"
+                      }`}
+                      disabled={isDisabled}
+                    >
+                      Send Message
+                    </button>
                   </div>
                 </div>
-
-                {/* Last Name */}
-                <div className="w-full px-4 sm:w-1/2">
-                  <div className="mb-6">
-                    <label className="mb-2.5 block text-base font-medium text-dark dark:text-white">
-                      Last name
-                    </label>
-                    <input
-                      name="lastname"
-                      type="text"
-                      placeholder="Last name"
-                      className="w-full rounded-lg border border-stroke bg-transparent px-5 py-3 text-dark placeholder-dark-5 outline-none duration-200 focus:border-primary dark:border-dark-3 dark:text-white dark:focus:border-primary"
-                      onChange={handleInputChange}
-                      onBlur={handleBlur}
-                      value={formData.lastname}
-                    />
-                    {touched.lastname && errors.lastname && (
-                      <span className="text-sm text-red-500">
-                        {errors.lastname}
-                      </span>
-                    )}
-                  </div>
-                </div>
-
-                {/* Email */}
-                <div className="w-full px-4">
-                  <div className="mb-6">
-                    <label className="mb-2.5 block text-base font-medium text-dark dark:text-white">
-                      Email
-                    </label>
-                    <input
-                      name="email"
-                      type="email"
-                      placeholder="email@company.com"
-                      className="w-full rounded-lg border border-stroke bg-transparent px-5 py-3 text-dark placeholder-dark-5 outline-none duration-200 focus:border-primary dark:border-dark-3 dark:text-white dark:focus:border-primary"
-                      onChange={handleInputChange}
-                      onBlur={handleBlur}
-                      value={formData.email}
-                    />
-                    {touched.email && errors.email && (
-                      <span className="text-sm text-red-500">
-                        {errors.email}
-                      </span>
-                    )}
-                  </div>
-                </div>
-
-                {/* Phone */}
-                <div className="w-full px-4">
-                  <div className="mb-6">
-                    <label className="mb-2.5 block text-base font-medium text-dark dark:text-white">
-                      Phone number
-                    </label>
-                    <input
-                      name="phone"
-                      type="text"
-                      placeholder="+1 (555) 444-0000"
-                      className="w-full rounded-lg border border-stroke bg-transparent px-5 py-3 text-dark placeholder-dark-5 outline-none duration-200 focus:border-primary dark:border-dark-3 dark:text-white dark:focus:border-primary"
-                      onChange={handleInputChange}
-                      onBlur={handleBlur}
-                      value={formData.phone}
-                    />
-                    {touched.phone && errors.phone && (
-                      <span className="text-sm text-red-500">
-                        {errors.phone}
-                      </span>
-                    )}
-                  </div>
-                </div>
-
-                {/* Message */}
-                <div className="w-full px-4">
-                  <div className="mb-6">
-                    <label className="mb-2.5 block text-base font-medium text-dark dark:text-white">
-                      Message
-                    </label>
-                    <textarea
-                      name="message"
-                      rows={6}
-                      placeholder="Type your message"
-                      className="w-full rounded-lg border border-stroke bg-transparent p-5 text-dark placeholder-dark-5 outline-none duration-200 focus:border-primary dark:border-dark-3 dark:text-white dark:focus:border-primary"
-                      onChange={handleInputChange}
-                      onBlur={handleBlur}
-                      value={formData.message}
-                    ></textarea>
-                    {touched.message && errors.message && (
-                      <span className="text-sm text-red-500">
-                        {errors.message}
-                      </span>
-                    )}
-                  </div>
-                </div>
-
-                {/* Submit Button */}
-                <div className="w-full px-4">
-                  <button
-                    type="submit"
-                    className={`flex h-12 w-full items-center justify-center rounded-lg px-5 py-3 text-base font-medium text-white duration-200 ${
-                      isDisabled
-                        ? "bg-gray-400 cursor-not-allowed"
-                        : "bg-black hover:bg-white hover:text-black hover:border hover:border-black"
-                    }`}
-                    disabled={isDisabled}
-                  >
-                    Send Message
-                  </button>
-                </div>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
-        </div>
-        <div className="w-full flex flex-col justify-start pt-[2%] pl-[10%] items-start lg:w-1/2 lg:h-[71vh]">
-          <h2 className="text-4xl font-semibold text-black mb-4">
-            Have a Project in Mind ?
-          </h2>
-          <h3 className="mb-4 text-gray-600 font-semibol text-xl">
-            If you have any inquiries contact us directly
-          </h3>
-          <p>
-            <a
-              className="font-semibold text-lg text-black"
-              href="mailtp:info@hafezdesignstudio.com"
-            >
-              info@hafezdesignstudio.com
-            </a>
-            <br />
-            <a
-              className="font-semibold text-lg text-black"
-              href="tel:+17059882971"
-            >
-              +1 705 988 2971
-            </a>
-          </p>
-          <img
-            src="/450-logo.png"
-            alt="ehab"
-            className="w-[360px] h-[170px] z-30 object-contain"
-          />
         </div>
       </div>
     </section>

@@ -9,7 +9,7 @@ import { IoIosContract } from "react-icons/io";
 
 const FeaturedServices = () => {
   return (
-    <div className="container mx-auto py-22 mt-[180px]">
+    <div className="container mx-auto py-22">
       <div className="px-4 flex flex-wrap">
         <div className="w-full px-4">
           <div className="mb-[60px] lg:mb-[70px]">
@@ -31,7 +31,7 @@ const FeaturedServices = () => {
           </div>
         </div>
       </div>
-      <div className="w-full flex grid grid-cols-4 mb-6 px-6">
+      <div className="w-full flex flex-wrap mb-6 px-6">
         <ServiceCard
           title="As-Built Floor Plans"
           details="Accurate measurements and detailed drawings of existing spaces to serve as a reliable foundation for your design projects."
@@ -93,7 +93,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   details2,
 }) => {
   return (
-    <div className="w-full px-4">
+    <div className="w-full px-4 md:w-1/2 lg:w-1/4">
       <div className="group mb-12">
         <div className="relative z-10 mb-8 flex h-[70px] w-[70px] items-center justify-center rounded-[14px] bg-black xl:mb-[50px]">
           <span className="absolute left-0 top-0 z-[-1] flex h-[70px] w-[70px] rotate-[25deg] items-center justify-center rounded-[14px] bg-primary bg-opacity-30 duration-300 group-hover:rotate-45"></span>

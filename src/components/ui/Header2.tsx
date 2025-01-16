@@ -50,9 +50,9 @@ const Header: React.FC<HeaderProps> = ({ logo }) => {
 
   return (
     <header
-      className={`fixed w-screen top-0 left-0 w-full transition-all duration-500 ease-in-out flex flex-row justify-center items-center z-40 ${
+      className={`fixed w-screen top-0 left-0 transition-all duration-500 ease-in-out flex flex-row justify-center items-center z-40 ${
         isHidden ? "h-0 opacity-0" : isShrunk ? "h-12" : "h-[20vh]"
-      } bg-white px-4`}
+      } px-4`}
     >
       <div className="hidden lg:flex lg:w-[12vw] lg:overflow-hidden">
         <div className="w-full flex flex-row gap-2 items-center justify-center">

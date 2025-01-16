@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const AboutPage: React.FC = () => {
   return (
     <>
-      <div className="w-screen pt-[200px] pb-[220px]">
+      <div className="w-screen mb-24 py-0 lg:py-20">
         <div className="container mx-auto flex flex-col gap-2 lg:flex-row-reverse lg:gap-0">
           <div className="w-full flex flex-col gap-y-6 lg:w-1/2">
             <div className="w-full h-full pb-4">
@@ -66,7 +66,7 @@ const AboutPage: React.FC = () => {
               spaces that meet the unique needs of our clients while exceeding
               expectations
             </p>
-            <div className="flex flex-col gap-4 lg:flex-row lg:pl-6">
+            <div className="flex flex-wrap space-y-4 lg:space-x-4">
               <Image
                 src="/nkb-cert.png"
                 alt="Founder of Sansa Interiors in Toronto"
